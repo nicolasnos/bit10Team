@@ -26,13 +26,3 @@ function App() {
 }
 
 export default App;
-
-/*
-https://gutendex.com/books/?page=2     API DE LIBROS
-https://thesimpsonsquoteapi.glitch.me/quotes    API DE LOS SIMPSON (FRASES)
-https://openlibra.com/es/page/public-api    API DE LIBROS (AVERIGUAR METODOS DET, POST)
-
-1. libros
-2. simpson
-3. breaking bad
-*/
