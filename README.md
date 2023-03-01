@@ -34,7 +34,7 @@ font-family: 'Roboto Mono', monospace;
 | Wireframe Baja | [Visualizar en Jamboard](https://jamboard.google.com/d/1eJa1pU6xK3mz4NtkUF7mlWvU8QhbN-glVlcAh_0H-lk/edit?usp=sharing) |
 | Wireframe Alta | [Visualizar en Canva](https://www.canva.com/design/DAFb0gxRbeM/jYq38C2u4LbUa3hXFbJ_0g/view?mode=prototype) |
 
-## _**Direstrices de grupo**_
+## _**Directrices de grupo**_
 ### Roles
 - **Daniel:** Encargado de la docuementación
 - **Nicolas:** Encargado de el repositorio
