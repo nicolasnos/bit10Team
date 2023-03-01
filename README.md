@@ -10,7 +10,7 @@
  Sharon: Encargada de wireframe de alta y lider de grupo  
 
 #### Logo Proyecto
-![Logo de proyecto](book_logo.png)
+![Logo de Proyecto](book_logo.png)
 
 #### Logo Team
 ![Logo de Team](team_logo.png)
