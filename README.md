@@ -13,11 +13,11 @@ Sharon: Encargada de wireframe de alta y lider de grupo
 
 #### Logo Proyecto
 
-![Logo de Proyecto](book_logo.png)
+![Logo de Proyecto](./public/img/book_logo.png)
 
 #### Logo Team
 
-![Logo de Team](team_logo.png)
+![Logo de Team](./public/img/team_logo.png)
 
 Daniel: Encargado de la docuementación
 Nicolas: Encargado de el repositorio
