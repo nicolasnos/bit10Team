@@ -42,7 +42,11 @@ const List = () => {
       console.log(item.formats);
       return (
         <Card key={item.id} style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={item.formats.image} />
+          <Card.Img
+            variant="top"
+            src={item.formats + "image/jpeg"}
+            alt={`imagen de ${item.title}`}
+          />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
