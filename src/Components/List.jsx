@@ -39,6 +39,7 @@ const List = () => {
   //funcion que maneja la informacion para hacerla una card
   const showBook = () => {
     const arr = data.results.map((item) => {
+      console.log(item.formats);
       return (
         <Card key={item.id} style={{ width: "18rem" }}>
           <Card.Img variant="top" src={item.formats.image} />
