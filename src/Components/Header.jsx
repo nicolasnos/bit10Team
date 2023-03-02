@@ -15,7 +15,6 @@ const Header = () => {
           src="../public/img/bookLogo.png"
         />
       </Figure>
-      <Navigation />
     </header>
   );
 };

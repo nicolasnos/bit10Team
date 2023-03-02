@@ -62,7 +62,14 @@ const List = () => {
     setBook(arr);
   };
 
-  return <section>{book}</section>;
+  return (
+    <>
+      <section className="background">
+        <h1>soy el fondo</h1>
+      </section>
+      <section>{book}</section>
+    </>
+  );
 };
 
 export default List;
