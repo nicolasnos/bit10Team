@@ -22,7 +22,9 @@ export const Footer = () => {
             <a href="https://github.com/nicolasnos" target={"_blank"}>
               <img src="../public/img/github.svg"></img>
             </a>
-            <a href="https://www.linkedin.com/in/nicolas-olmos-a7a1ba261/" target={"_blank"}>
+            <a
+              href="https://www.linkedin.com/in/nicolas-olmos-a7a1ba261/"
+              target={"_blank"}>
               <img src="../public/img/linkedin.svg"></img>
             </a>
           </div>
@@ -44,9 +46,8 @@ export const Footer = () => {
           </div>
         </section>
         <p className="texto_derechos">
-            ©️ TODOS LOS DERECHOS RESERVADOS 2023 DESARROLLADO POR TELE Y
-            TRABAJO
-          </p>
+          ©️ TODOS LOS DERECHOS RESERVADOS 2023 DESARROLLADO POR TELE Y TRABAJO
+        </p>
       </Figure>
     </footer>
   );
