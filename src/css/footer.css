@@ -8,6 +8,7 @@
 }
 
 footer {
+  margin: 0;
   background-color: var(--colorAzul);
 }
 
@@ -16,6 +17,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0;
 }
 
 .texto_integrantes {
@@ -52,6 +54,7 @@ footer {
 /* Resposivo */
 
 @media (max-width: 500px) {
+  
   .texto_integrantes {
     font-size: 10px;
   }
