@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Rampart+One&display=swap');
+
+
+header {
+  min-width: 375px;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://www.discoverlosangeles.com/sites/default/files/images/2019-01/Hermosa%20Beach%20Pier%20sunset.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp");
+  justify-content: space-between;
+  align-items: flex-start;
+  object-fit: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+header img {
+  margin-left: 40px;
+}
+
+header nav{
+  height: 20vh;
+  width: 30vw;
+  background-color: #1E1C25;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a{
+  color: #F1D2B3;
+  font-size: 2rem;
+  text-decoration: none;
+  margin: 20px, 20px;
+}
+
+header div {
+  display: block;
+}
+
+header div span{
+  display: block;
+  font-family: 'Rampart One', cursive;
+  font-size: larger;
+}

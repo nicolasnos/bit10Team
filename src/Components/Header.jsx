@@ -1,25 +1,21 @@
 import React from "react";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
-import List from "./List";
-import Team from "./Team";
+import Navigation from "./Navigation";
+import Figure from "react-bootstrap/Figure";
+import "../css/Header.css";
 
 const Header = () => {
   return (
     <header>
-      <BrowserRouter>
-        <nav className="py-4 text-center">
-          <Link className="px-4" to="/">
-            Aplicacion
-          </Link>
-          <Link className="px-4" to="/team">
-            Team
-          </Link>
-          <Routes>
-            <Route path="/" element={<List />} />
-            <Route path="/team" element={<Team />} />
-          </Routes>
-        </nav>
-      </BrowserRouter>
+      <Figure className="contenedor">
+        <Figure.Image
+          className="contenedor_img"
+          width={200}
+          height={164}
+          alt="254x154"
+          src="../public/img/bookLogo.png"
+        />
+      </Figure>
+      <Navigation />
     </header>
   );
 };
