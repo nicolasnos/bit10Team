@@ -1,0 +1,21 @@
+*::before,
+*::after {
+  box-sizing: border-box; 
+}
+
+*{
+    margin: 0;
+} 
+
+footer{
+    background-color: var(--colorAzul);
+}
+.contenedor{
+    display: flex;
+    text-align: center;
+}
+.redes{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}

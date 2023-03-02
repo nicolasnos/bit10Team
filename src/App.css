@@ -1,0 +1,17 @@
+*::before,
+*::after {
+  box-sizing: border-box; 
+} 
+
+/* paleta de colores */
+
+:root {
+  --colorAzulClaro: #214255;
+  --colorAzul: #121B22;
+  --colorNaraja: #B94B3E;
+  --colorNarajaClaro: #DB6447;
+  --colorCrema: #FFF8E6;
+}
+
+
+
