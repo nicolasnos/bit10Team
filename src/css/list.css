@@ -1,13 +1,3 @@
-.contenedor-main {
-  padding-top: 85vh;
-}
-
-.card-contenedor {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.card {
-  margin: 20px;
+.main .cards{
+  margin-top: 40%;
 }
