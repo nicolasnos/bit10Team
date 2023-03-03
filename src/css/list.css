@@ -1,3 +1,29 @@
-.main .cards{
-  margin-top: 40%;
+.contenedor-main {
+  padding-top: 85vh;
+}
+
+.card-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  place-items: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.card-contenedor .card {
+  width: 100%;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .card-contenedor {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
