@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Rampart+One&display=swap');
+@import url();
+
+
+header {
+  min-width: 375px;
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 20vh;
+}
+
+header img {
+  margin-top: -30px;
+  padding-left: 30px;
+}
+
+ nav{
+  height: 18vh;
+  width: 27vw;
+  background-color: #1E1C25;
+  border-radius: 10% 0% 0% 34% / 0% 10% 10% 61% ;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+  opacity: 0.9;
+}
+
+ nav a{
+  color: #F1D2B3;
+  font-size: 2rem;
+  text-decoration: none;
+  margin: 20px, 20px;
+}
