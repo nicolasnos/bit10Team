@@ -3,10 +3,17 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
+import { ModalShow } from "./ModalShow";
 
 const List = () => {
   const [data, setData] = useState(null);
   const [book, setBook] = useState(null);
+  const [addBook, setAddBook] = useState({
+    title: "",
+    author: "",
+    gender: "",
+  });
+  const [newBook, setNewBook] = useState([]);
 
   const [load, setLoad] = useState(null);
   const [error, setError] = useState(false);
@@ -39,10 +46,10 @@ const List = () => {
   //funcion que maneja la informacion para hacerla una card
   const showBook = () => {
     const arr = data.results.map((item) => {
-      console.log(item.formats);
+      /*       console.log(item.formats); */
       return (
         <Card key={item.id} style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={item.formats.image} />
+          {/* <Card.Img variant="top" src={item.formats.image} >/ */}
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
@@ -58,7 +65,18 @@ const List = () => {
     setBook(arr);
   };
 
-  return <section>{book}</section>;
+  return (
+    <section>
+      <ModalShow
+        addBook={addBook}
+        setaddBook={setAddBook}
+        newBook={newBook}
+        setNewBook={setNewBook}
+        setBook={setBook}
+      />
+      {book}
+    </section>
+  );
 };
 
 export default List;
