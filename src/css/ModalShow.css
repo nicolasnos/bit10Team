@@ -1,0 +1,70 @@
+.modal-header {
+  background-color: var(--colorNaraja);
+  font-family: "Roboto Mono", monospace;
+}
+
+.modal-header .titulo {
+  color: var(--colorCrema);
+  font-size: 25px;
+}
+
+.modal-body {
+  background-color: var(--colorCrema);
+  font-family: "Roboto Mono", monospace;
+}
+
+.form-label {
+  color: var(--colorNaraja);
+  font-size: medium;
+  margin: 10px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.form-control {
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 7px;
+  background: #b94a3e42;
+  padding: 1em 2em;
+  border: none;
+  color: var(--colorAzul);
+}
+
+.form-control::placeholder {
+  color: var(--colorAzul);
+}
+.btn-contenedor {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.btn-guardar {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(185, 75, 62, 1) 54%,
+    rgba(0, 0, 0, 1) 94%
+  );
+  box-shadow: 0 9px 25px -5px var(--colorNarajaClaro);
+  padding: 0.5em 1.9em;
+  margin: 2.3em 0 0 0;
+  border-radius: 7px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: var(--colorCrema);
+  font-size: 1em;
+  outline: none;
+  border: none;
+  transition: 0.3s linear;
+}
+.btn-guardar:hover {
+  transform: translatey(2px);
+}
+
+.btn-guardar:active {
+  transform: translatey(5px);
+}
+

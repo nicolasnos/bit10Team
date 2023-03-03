@@ -1,17 +1,17 @@
 *::before,
 *::after {
-  box-sizing: border-box; 
-} 
+  box-sizing: border-box;
+}
 
 /* paleta de colores */
 
 :root {
   --colorAzulClaro: #214255;
-  --colorAzul: #121B22;
-  --colorNaraja: #B94B3E;
-  --colorNarajaClaro: #DB6447;
-  --colorCrema: #FFF8E6;
+  --colorAzul: #121b22;
+  --colorNaraja: #b94b3e;
+  --colorNarajaClaro: #db6447;
+  --colorCrema: #fff8e6;
 }
-
-
-
+body {
+  background-color: var(--colorCrema);
+}
