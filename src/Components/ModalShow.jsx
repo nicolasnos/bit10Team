@@ -8,6 +8,7 @@ import {
   ModalFooter,
   ModalTitle,
 } from "react-bootstrap";
+import "../css/ModalShow.css";
 
 export const ModalShow = ({
   addBook = { title: "", author: "", gender: "" },
@@ -58,19 +59,22 @@ export const ModalShow = ({
 
   return (
     <>
-      <div className=" d-grid gap-2 ">
-        <Button onClick={handleShow}>Agregar</Button>
+      <div className="  d-grid gap-2 ">
+        <Button className="btn-modal" onClick={handleShow}>
+          Agregar
+        </Button>
       </div>
 
       <Modal size="lg" show={modalShow} onHide={handleClose}>
-        <Modal.Header>
-          <ModalTitle>Nuevo Libro</ModalTitle>
+        <Modal.Header className="modal-header ">
+          <ModalTitle className="titulo">Nuevo Libro</ModalTitle>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <FormLabel> Titulo del libro</FormLabel>
+              <FormLabel className="form-label"> Titulo del libro</FormLabel>
               <FormControl
+                className="form-control"
                 type="text"
                 placeholder="Ingrese el titulo"
                 required
@@ -79,8 +83,9 @@ export const ModalShow = ({
               />
             </Form.Group>
             <Form.Group>
-              <FormLabel> Autor del libro</FormLabel>
+              <FormLabel className="form-label"> Autor del libro</FormLabel>
               <FormControl
+                className="form-control"
                 type="text"
                 placeholder="Ingrese el autor"
                 required
@@ -89,8 +94,9 @@ export const ModalShow = ({
               />
             </Form.Group>
             <Form.Group>
-              <FormLabel> Género litetario</FormLabel>
+              <FormLabel className="form-label"> Género litetario</FormLabel>
               <FormControl
+                className="form-control"
                 type="text"
                 placeholder="Ingrese el género"
                 required
@@ -98,12 +104,14 @@ export const ModalShow = ({
                 onChange={handleGender}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              {" "}
-              Guardar Cambios
-            </Button>
+            <div className="btn-contenedor">
+              <Button variant="primary" type="submit" className="btn-guardar">
+                {" "}
+                Guardar Cambios
+              </Button>
+            </div>
           </Form>
-          <ModalFooter>
+          <ModalFooter> 
             <Button variant="secondary" onClick={handleClose}>
               Cerrar
             </Button>
