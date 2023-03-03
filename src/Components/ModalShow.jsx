@@ -52,8 +52,8 @@ export const ModalShow = ({
     event.preventDefault();
     setNewBook([...newBook, addBook]);
     setaddBook({ title: "", author: "", gender: "" });
-
-    console.log("funciona");
+    handleClose();
+    console.log(newBook);
   };
 
   return (
