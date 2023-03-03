@@ -89,7 +89,7 @@ const List = () => {
           value={search}
           onChange={searcherBook}
           type="text"
-          placeholder="Search"
+          placeholder="Filter by Book"
           className="form-control"
         />
       </div>
