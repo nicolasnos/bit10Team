@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { ModalShow } from "./ModalShow";
+import BookList from "./BookList";
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -84,8 +85,6 @@ const List = () => {
               {item.authors[0].name}
             </Card.Subtitle>
             <Card.Text>{item.subjects.join(", ")}</Card.Text>
-            <Button variant="primary">Edit button</Button>
-            <Button variant="danger">Delete button</Button>
           </Card.Body>
         </Card>
       );
@@ -136,7 +135,11 @@ const List = () => {
             setBook={setBook}
           />
         </article>
-        <article className="card-contenedor">{book}</article>
+        <article>
+          <BookList newBook={newBook} setNewBook={setNewBook} />
+        </article>
+
+        <article className="card-contenedor"> {book}</article>
       </section>
     </>
   );
