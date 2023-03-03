@@ -5,11 +5,17 @@ import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import "../css/List.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { ModalShow } from "./ModalShow";
 
 const List = () => {
   const [data, setData] = useState(null);
   const [book, setBook] = useState(null);
+  const [addBook, setAddBook] = useState({
+    title: "",
+    author: "",
+    gender: "",
+  });
+  const [newBook, setNewBook] = useState([]);
 
   const [load, setLoad] = useState(null);
   const [error, setError] = useState(false);
@@ -66,6 +72,7 @@ const List = () => {
     const arr = filteredBooks.map((item) => {
       return (
         <Card key={item.id} style={{ width: "18rem" }}>
+          {" "}
           <Card.Img
             variant="top"
             src={item.formats + "image/jpeg"}
@@ -89,6 +96,13 @@ const List = () => {
   return (
     <section>
       <Banner />
+      <ModalShow
+        addBook={addBook}
+        setaddBook={setAddBook}
+        newBook={newBook}
+        setNewBook={setNewBook}
+        setBook={setBook}
+      />
       <div>
         <input
           value={search}
