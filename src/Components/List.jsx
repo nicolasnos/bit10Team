@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
+import "../css/List.css";
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -63,12 +65,10 @@ const List = () => {
   };
 
   return (
-    <>
-      <section className="background">
-        <h1>soy el fondo</h1>
-      </section>
-      <section>{book}</section>
-    </>
+    <section className="main">
+      <Banner />
+      <section className="cards">{book}</section>
+    </section>
   );
 };
 
