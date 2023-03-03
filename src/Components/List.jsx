@@ -5,6 +5,7 @@ import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import "../css/List.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -13,20 +14,32 @@ const List = () => {
   const [load, setLoad] = useState(null);
   const [error, setError] = useState(false);
 
-  //vigila a la api
+  const [search, setSearch] = useState("");
+  const [authorFilter, setAuthorFilter] = useState("");
+  const [genreFilter, setGenreFilter] = useState("");
+
+  const searcherBook = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const authorFilterHandler = (e) => {
+    setAuthorFilter(e.target.value);
+  };
+
+  const genreFilterHandler = (e) => {
+    setGenreFilter(e.target.value);
+  };
+
   useEffect(() => {
     showApi();
   }, []);
 
-  //vigila que si api camba de color, active la funcion de card
   useEffect(() => {
     if (data) {
       showBook();
-      console.log(data.results);
     }
-  }, [data]);
+  }, [data, search, authorFilter, genreFilter]);
 
-  //funcion que trae api
   const showApi = async () => {
     try {
       setLoad(true);
@@ -38,10 +51,19 @@ const List = () => {
     }
   };
 
-  //funcion que maneja la informacion para hacerla una card
   const showBook = () => {
-    const arr = data.results.map((item) => {
-      console.log(item.formats);
+    const filteredBooks = data.results
+      .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+      .filter((item) =>
+        item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
+      )
+      .filter((item) =>
+        item.subjects.some((subject) =>
+          subject.toLowerCase().includes(genreFilter.toLowerCase())
+        )
+      );
+
+    const arr = filteredBooks.map((item) => {
       return (
         <Card key={item.id} style={{ width: "18rem" }}>
           <Card.Img
@@ -54,9 +76,9 @@ const List = () => {
             <Card.Subtitle className="mb-2 text-muted">
               {item.authors[0].name}
             </Card.Subtitle>
-            <Card.Text>{item.subjects[0]}</Card.Text>
-            <Button variant="primary">Boton de editar</Button>
-            <Button variant="danger">Boton de borrar</Button>
+            <Card.Text>{item.subjects.join(", ")}</Card.Text>
+            <Button variant="primary">Edit button</Button>
+            <Button variant="danger">Delete button</Button>
           </Card.Body>
         </Card>
       );
@@ -65,15 +87,37 @@ const List = () => {
   };
 
   return (
-    <section className="main">
+    <section>
       <Banner />
-      <section className="cards">{book}</section>
+      <div>
+        <input
+          value={search}
+          onChange={searcherBook}
+          type="text"
+          placeholder="Search"
+          className="form-control"
+        />
+      </div>
+      <div>
+        <input
+          value={authorFilter}
+          onChange={authorFilterHandler}
+          type="text"
+          placeholder="Filter by author"
+          className="form-control"
+        />
+      </div>
+      <div>
+        <input
+          value={genreFilter}
+          onChange={genreFilterHandler}
+          type="text"
+          placeholder="Filter by Genero"
+          className="form-control"
+        />
+      </div>
+      {book}
     </section>
   );
 };
-
 export default List;
-
-{
-  /* pendiente consultar la ruta de la imagen */
-}
