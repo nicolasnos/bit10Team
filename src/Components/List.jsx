@@ -22,12 +22,6 @@ const List = () => {
   });
   const [newBook, setNewBook] = useState([]);
 
-<<<<<<< HEAD
-  const [load, setLoad] = useState(null);
-  const [error, setError] = useState(false);
-
-=======
->>>>>>> daniel
   useEffect(() => {
     console.log("totalbooks:", totalBooks);
   }, [totalBooks]);
@@ -52,25 +46,8 @@ const List = () => {
     }
   };
 
-<<<<<<< HEAD
-  const showBook = () => {
-    setTotalBooks(data.results);
-    const filteredBooks = data.results
-      .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-
-      .filter((item) =>
-        item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
-      )
-      .filter((item) =>
-        item.subjects.some((subject) =>
-          subject.toLowerCase().includes(genreFilter.toLowerCase())
-        )
-      );
-    const arr = totalBooks.map((item, i) => {
-=======
   const showBook = (results) => {
     const arr = results.map((item, i) => {
->>>>>>> daniel
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
@@ -109,12 +86,7 @@ const List = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <Banner />{" "}
-      <Filter />
-=======
       <Banner />
->>>>>>> daniel
       <section className="contenedor-main">
         <article>
           <ModalShow
