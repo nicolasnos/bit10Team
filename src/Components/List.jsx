@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../css/List.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Banner from "./Banner";
-import Spinner from "react-bootstrap/Spinner";
-import Alert from "react-bootstrap/Alert";
-import { ModalShow } from "./ModalShow";
+import ModalShow from "./ModalShow";
 import BookList from "./BookList";
+import Filters from "./Filters";
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -15,13 +13,16 @@ const List = () => {
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
-    gender: "",
+    genre: "",
   });
   const [newBook, setNewBook] = useState([]);
 
+<<<<<<< HEAD
   const [load, setLoad] = useState(null);
   const [error, setError] = useState(false);
 
+=======
+>>>>>>> daniel
   useEffect(() => {
     console.log("totalbooks:", totalBooks);
   }, [totalBooks]);
@@ -32,21 +33,21 @@ const List = () => {
 
   useEffect(() => {
     if (data) {
-      showBook();
+      showBook(data.results);
     }
   }, [data]);
 
   const showApi = async () => {
     try {
-      setLoad(true);
       const res = await fetch("https://gutendex.com/books/?");
-      setData(await res.json());
+      const data = await res.json();
+      setData(data);
     } catch (error) {
-      setError(true);
-    } finally {
+      console.log(error);
     }
   };
 
+<<<<<<< HEAD
   const showBook = () => {
     setTotalBooks(data.results);
     const filteredBooks = data.results
@@ -61,6 +62,10 @@ const List = () => {
         )
       );
     const arr = totalBooks.map((item, i) => {
+=======
+  const showBook = (results) => {
+    const arr = results.map((item, i) => {
+>>>>>>> daniel
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
@@ -75,12 +80,36 @@ const List = () => {
       );
     });
     setBook(arr);
+    setTotalBooks(results);
+  };
+
+  const handleFilterChange = (filterType, filterValue) => {
+    let filteredBooks = data.results.filter((book) => {
+      if (filterType === "title") {
+        return book.title.toLowerCase().includes(filterValue.toLowerCase());
+      } else if (filterType === "author") {
+        return book.authors[0].name
+          .toLowerCase()
+          .includes(filterValue.toLowerCase());
+      } else if (filterType === "genre") {
+        return book.subjects.some((subject) =>
+          subject.toLowerCase().includes(filterValue.toLowerCase())
+        );
+      }
+    });
+
+    setTotalBooks(filteredBooks);
+    showBook(filteredBooks);
   };
 
   return (
     <>
+<<<<<<< HEAD
       <Banner />{" "}
       <Filter />
+=======
+      <Banner />
+>>>>>>> daniel
       <section className="contenedor-main">
         <article>
           <ModalShow
@@ -94,12 +123,15 @@ const List = () => {
           />
         </article>
         <article>
+          <Filters handleFilter={handleFilterChange} />
+        </article>
+        <article>
           <BookList newBook={newBook} setNewBook={setNewBook} />
         </article>
-
-        <article className="card-contenedor"> {book}</article>
+        <article className="card-contenedor">{book}</article>
       </section>
     </>
   );
 };
+
 export default List;
