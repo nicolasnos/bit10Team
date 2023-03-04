@@ -57,7 +57,7 @@ const List = () => {
       );
     });
     setBook(arr);
-    setTotalBooks(results);
+    setTotalBooks(data.results);
   };
 
   const handleFilterChange = (filterType, filterValue) => {
@@ -97,9 +97,6 @@ const List = () => {
         <article>
           <Filters handleFilter={handleFilterChange} />
         </article>
-        <article>
-          <BookList newBook={newBook} setNewBook={setNewBook} />
-        </article>
 
         <article className="card-contenedor">
           {" "}
@@ -111,8 +108,6 @@ const List = () => {
             setNewBook={setNewBook}
           />
         </article>
-
-        <article className="card-contenedor"> {book}</article>
       </section>
     </>
   );
