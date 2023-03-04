@@ -6,10 +6,12 @@ import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { ModalShow } from "./ModalShow";
+import BookList from "./BookList";
 
 const List = () => {
   const [data, setData] = useState(null);
   const [book, setBook] = useState(null);
+  const [totalBooks, setTotalBooks] = useState([]);
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
@@ -37,6 +39,10 @@ const List = () => {
   };
 
   useEffect(() => {
+    console.log("totalbooks:", totalBooks);
+  }, [totalBooks]);
+
+  useEffect(() => {
     showApi();
   }, []);
 
@@ -58,6 +64,7 @@ const List = () => {
   };
 
   const showBook = () => {
+    setTotalBooks(data.results);
     const filteredBooks = data.results
       .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
       .filter((item) =>
@@ -68,24 +75,16 @@ const List = () => {
           subject.toLowerCase().includes(genreFilter.toLowerCase())
         )
       );
-
-    const arr = filteredBooks.map((item) => {
+    const arr = totalBooks.map((item, i) => {
       return (
-        <Card key={item.id} style={{ width: "18rem" }} className="card">
+        <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
-          <Card.Img
-            variant="top"
-            src={item.formats + "image/jpeg"}
-            alt={`imagen de ${item.title}`}
-          />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               {item.authors[0].name}
             </Card.Subtitle>
             <Card.Text>{item.subjects.join(", ")}</Card.Text>
-            <Button variant="primary">Edit button</Button>
-            <Button variant="danger">Delete button</Button>
           </Card.Body>
         </Card>
       );
@@ -164,9 +163,15 @@ const List = () => {
             newBook={newBook}
             setNewBook={setNewBook}
             setBook={setBook}
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
           />
         </article>
-        <article className="card-contenedor">{book}</article>
+        <article>
+          <BookList newBook={newBook} setNewBook={setNewBook} />
+        </article>
+
+        <article className="card-contenedor"> {book}</article>
       </section>
     </>
   );

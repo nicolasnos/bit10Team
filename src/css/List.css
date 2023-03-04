@@ -1,6 +1,14 @@
 .contenedor-main {
   padding-top: 85vh;
 }
+.addcard-contenedor{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  place-items: center;
+  gap: 20px;
+  margin: 20px;
+}
 
 .card-contenedor {
   display: grid;
