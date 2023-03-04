@@ -1,8 +1,9 @@
 .background {
   background-image: url("../../public/img/fondo.png");
+  border-radius: 10% 0% 0% 34% / 0% 10% 10% 61%;
   object-fit: cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -12,33 +13,43 @@
   font-family: "Roboto Mono", monospace;
 }
 
- .content {
-  border: solid;
-   border-left: 2px rgb(109, 255, 80);
-   margin-left: 10%;
+.content {
+  margin-left: 10%;
 }
 
 .background div h2 {
   font-size: 5rem;
-  margin-top: 12%;
+  margin-top: 15%;
 }
 
-span{
+span {
   display: block;
-  font-family: 'Rampart One', cursive;
+  font-family: "Rampart One", cursive;
   font-size: larger;
 }
 
-.background p{
+.background p {
   font-size: 1.8rem;
 }
 
-.background a{
+.background a {
   background-color: #141223;
   color: var(--colorCrema);
   font-size: 2rem;
   text-decoration: none;
   margin-left: 48%;
-  padding: 10px;
+  padding: 15px;
   border-radius: 15px;
+}
+@media screen and (max-width: 960px) {
+  .background div h2 {
+    font-size: 5rem;
+    margin-top: 20%;
+  }
+  span {
+    font-size: 75px;
+  }
+  .background p {
+    font-size: 1.4rem;
+  }
 }
