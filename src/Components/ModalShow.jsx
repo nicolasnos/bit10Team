@@ -15,11 +15,15 @@ export const ModalShow = ({
   setaddBook,
   newBook,
   setNewBook,
+  totalBooks,
+  setTotalBooks,
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
   //Funciones que maneja el modal
-  const handleClose = () => setModalShow(false);
+  const handleClose = () => {
+    setaddBook({ title: "", author: "", gender: "" }), setModalShow(false);
+  };
   const handleShow = () => setModalShow(true);
 
   const handleTitle = (event) => {
@@ -51,10 +55,12 @@ export const ModalShow = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewBook([...newBook, addBook]);
-    setaddBook({ title: "", author: "", gender: "" });
+    setNewBook(() => [...newBook, addBook]);
+    setaddBook({ title: "", authors: "", gender: "" });
+    const newList = [...totalBooks, addBook];
+    setTotalBooks(newList);
+    console.log(totalBooks);
     handleClose();
-    console.log(newBook);
   };
 
   return (
@@ -66,7 +72,7 @@ export const ModalShow = ({
       </div>
 
       <Modal size="lg" show={modalShow} onHide={handleClose}>
-        <Modal.Header className="modal-header ">
+        <Modal.Header className="modal-header " closeButton>
           <ModalTitle className="titulo">Nuevo Libro</ModalTitle>
         </Modal.Header>
         <Modal.Body className="modal-body">
@@ -111,7 +117,7 @@ export const ModalShow = ({
               </Button>
             </div>
           </Form>
-          <ModalFooter> 
+          <ModalFooter>
             <Button variant="secondary" onClick={handleClose}>
               Cerrar
             </Button>
