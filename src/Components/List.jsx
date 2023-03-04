@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../css/List.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Banner from "./Banner";
-import Spinner from "react-bootstrap/Spinner";
-import Alert from "react-bootstrap/Alert";
-import { ModalShow } from "./ModalShow";
+import ModalShow from "./ModalShow";
 import BookList from "./BookList";
+import Filters from "./Filters";
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -15,28 +13,9 @@ const List = () => {
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
-    gender: "",
+    genre: "",
   });
   const [newBook, setNewBook] = useState([]);
-
-  const [load, setLoad] = useState(null);
-  const [error, setError] = useState(false);
-
-  const [search, setSearch] = useState("");
-  const [authorFilter, setAuthorFilter] = useState("");
-  const [genreFilter, setGenreFilter] = useState("");
-
-  const searcherBook = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const authorFilterHandler = (e) => {
-    setAuthorFilter(e.target.value);
-  };
-
-  const genreFilterHandler = (e) => {
-    setGenreFilter(e.target.value);
-  };
 
   useEffect(() => {
     console.log("totalbooks:", totalBooks);
@@ -48,34 +27,22 @@ const List = () => {
 
   useEffect(() => {
     if (data) {
-      showBook();
+      showBook(data.results);
     }
-  }, [data, search, authorFilter, genreFilter]);
+  }, [data]);
 
   const showApi = async () => {
     try {
-      setLoad(true);
       const res = await fetch("https://gutendex.com/books/?");
-      setData(await res.json());
+      const data = await res.json();
+      setData(data);
     } catch (error) {
-      setError(true);
-    } finally {
+      console.log(error);
     }
   };
 
-  const showBook = () => {
-    setTotalBooks(data.results);
-    const filteredBooks = data.results
-      .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-      .filter((item) =>
-        item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
-      )
-      .filter((item) =>
-        item.subjects.some((subject) =>
-          subject.toLowerCase().includes(genreFilter.toLowerCase())
-        )
-      );
-    const arr = totalBooks.map((item, i) => {
+  const showBook = (results) => {
+    const arr = results.map((item, i) => {
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
@@ -90,42 +57,32 @@ const List = () => {
       );
     });
     setBook(arr);
+    setTotalBooks(results);
+  };
+
+  const handleFilterChange = (filterType, filterValue) => {
+    let filteredBooks = data.results.filter((book) => {
+      if (filterType === "title") {
+        return book.title.toLowerCase().includes(filterValue.toLowerCase());
+      } else if (filterType === "author") {
+        return book.authors[0].name
+          .toLowerCase()
+          .includes(filterValue.toLowerCase());
+      } else if (filterType === "genre") {
+        return book.subjects.some((subject) =>
+          subject.toLowerCase().includes(filterValue.toLowerCase())
+        );
+      }
+    });
+
+    setTotalBooks(filteredBooks);
+    showBook(filteredBooks);
   };
 
   return (
     <>
-      <Banner />{" "}
+      <Banner />
       <section className="contenedor-main">
-        <article>
-          {" "}
-          <div>
-            <input
-              value={search}
-              onChange={searcherBook}
-              type="text"
-              placeholder="Search"
-              className="form-control"
-            />
-          </div>
-          <div>
-            <input
-              value={authorFilter}
-              onChange={authorFilterHandler}
-              type="text"
-              placeholder="Filter by author"
-              className="form-control"
-            />
-          </div>
-          <div>
-            <input
-              value={genreFilter}
-              onChange={genreFilterHandler}
-              type="text"
-              placeholder="Filter by Genero"
-              className="form-control"
-            />
-          </div>
-        </article>
         <article>
           <ModalShow
             addBook={addBook}
@@ -138,12 +95,15 @@ const List = () => {
           />
         </article>
         <article>
+          <Filters handleFilter={handleFilterChange} />
+        </article>
+        <article>
           <BookList newBook={newBook} setNewBook={setNewBook} />
         </article>
-
-        <article className="card-contenedor"> {book}</article>
+        <article className="card-contenedor">{book}</article>
       </section>
     </>
   );
 };
+
 export default List;
