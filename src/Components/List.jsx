@@ -137,11 +137,20 @@ const List = () => {
             setTotalBooks={setTotalBooks}
           />
         </article>
-        <article>
+        {/*         <article>
           <BookList newBook={newBook} setNewBook={setNewBook} />
-        </article>
+        </article> */}
 
-        <article className="card-contenedor"> {book}</article>
+        <article className="card-contenedor">
+          {" "}
+          {book}
+          <BookList
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
+            newBook={newBook}
+            setNewBook={setNewBook}
+          />
+        </article>
       </section>
     </>
   );
