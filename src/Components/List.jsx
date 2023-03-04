@@ -6,10 +6,15 @@ import ModalShow from "./ModalShow";
 import BookList from "./BookList";
 import Filters from "./Filters";
 
+
 const List = () => {
   const [data, setData] = useState(null);
   const [book, setBook] = useState(null);
   const [totalBooks, setTotalBooks] = useState([]);
+  const [titleFilter, setTitleFilter] = useState("");
+  const [authorFilter, setAuthorFilter] = useState("");
+  const [genreFilter, setGenreFilter] = useState("");
+
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
@@ -35,7 +40,7 @@ const List = () => {
     if (data) {
       showBook(data.results);
     }
-  }, [data]);
+  }, [data, titleFilter, authorFilter, genreFilter]);
 
   const showApi = async () => {
     try {
@@ -83,17 +88,17 @@ const List = () => {
     setTotalBooks(results);
   };
 
-  const handleFilterChange = (filterType, filterValue) => {
-    let filteredBooks = data.results.filter((book) => {
-      if (filterType === "title") {
-        return book.title.toLowerCase().includes(filterValue.toLowerCase());
-      } else if (filterType === "author") {
-        return book.authors[0].name
+  const handleFilterChange = () => {
+    let filteredBooks = totalBooks.filter((totalBooks) => {
+      if (titleFilter === title) {
+        return console.log(totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())) 
+      } else if (authorFilter === author) {
+        return totalBooks.authors[0].name
           .toLowerCase()
           .includes(filterValue.toLowerCase());
-      } else if (filterType === "genre") {
-        return book.subjects.some((subject) =>
-          subject.toLowerCase().includes(filterValue.toLowerCase())
+      } else if (genreFilter === genre) {
+        return totalBooks.subjects.some((subject) =>
+          subject.toLowerCase().filter(filterValue.toLowerCase())
         );
       }
     });
@@ -123,7 +128,7 @@ const List = () => {
           />
         </article>
         <article>
-          <Filters handleFilter={handleFilterChange} />
+          <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} />
         </article>
         <article>
           <BookList newBook={newBook} setNewBook={setNewBook} />

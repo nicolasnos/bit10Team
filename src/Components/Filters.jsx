@@ -1,55 +1,86 @@
-import React, { useState } from "react";
+import React from "react";
+import { Card, Button } from "react-bootstrap";
 
-const Filters = ({ handleFilter }) => {
-  const [titleFilter, setTitleFilter] = useState("");
-  const [authorFilter, setAuthorFilter] = useState("");
-  const [genreFilter, setGenreFilter] = useState("");
+const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter, authorFilter, genreFilter, totalBooks, setTotalBooks }) => {
 
+  const searcherBook = (e) => {
+    setTitleFilter(e.target.value);
+  };
+
+  const authorFilterHandler = (e) => {
+    setAuthorFilter(e.target.value);
+  };
+
+  const genreFilterHandler = (e) => {
+    setGenreFilter(e.target.value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const filters = {
-      title: titleFilter,
-      author: authorFilter,
-      genre: genreFilter,
+
+    const filteredBooks = totalBooks
+      .filter((item) =>
+        item.title.toLowerCase().includes(titleFilter.toLowerCase())
+      )
+      .filter((item) =>
+        item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
+      )
+      .filter((item) =>
+        item.subjects.some((subject) =>
+          subject.toLowerCase().includes(genreFilter.toLowerCase())
+        )
+      );
+      const arr = filteredBooks.map((item, i) => {
+        return (
+          <Card key={i} style={{ width: "18rem" }}>
+              <Card.Subtitle className="mb-2 text-muted">
+                {item.authors[0].name}
+              </Card.Subtitle>
+              <Card.Text>{item.subjects.join(", ")}</Card.Text>
+              <Button variant="primary">Edit button</Button>
+              <Button variant="danger">Delete button</Button>
+          </Card>
+            
+        );}
+      );
+      setTotalBooks(arr)
     };
-    handleFilter(filters);
-  };
+    
 
   return (
     <div className="filters">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Titulo:</label>
           <input
             type="text"
             className="form-control"
             id="title"
             value={titleFilter}
-            onChange={(event) => setTitleFilter(event.target.value)}
+            onChange={searcherBook}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="author">Author:</label>
+          <label htmlFor="author">Autor:</label>
           <input
             type="text"
             className="form-control"
             id="author"
             value={authorFilter}
-            onChange={(event) => setAuthorFilter(event.target.value)}
+            onChange={authorFilterHandler}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="genre">Genre:</label>
+          <label htmlFor="genre">Genero:</label>
           <input
             type="text"
             className="form-control"
             id="genre"
             value={genreFilter}
-            onChange={(event) => setGenreFilter(event.target.value)}
+            onChange={genreFilterHandler}
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Filter
+          Buscar
         </button>
       </form>
     </div>
