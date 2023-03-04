@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 export default function BookIteam({
   index,
   title,
-  author,
+  authors,
   gender,
   newBook,
   setNewBook,
@@ -12,26 +12,26 @@ export default function BookIteam({
   setEditItem,
 }) {
   const [newTitle, setNewTitle] = useState(title);
-  const [newAuthor, setNewAuthor] = useState(author);
+  const [newAuthors, setNewAuthors] = useState(authors);
   const [newGenre, setNewGenre] = useState(gender);
 
-  //Fucncion que elimina la tarjeta 
+  //Fucncion que elimina la tarjeta
   const handleDelete = () => {
     const updatedBookList = [...newBook];
     updatedBookList.splice(index, 1);
     setNewBook(updatedBookList);
   };
 
-  //Funcion que editar la tarjeta 
+  //Funcion que editar la tarjeta
 
   const handleEdit = () => {
-    setEditItem({ index, title, author, gender });
+    setEditItem({ index, title, authors, gender });
   };
 
   const handleUpdate = () => {
     const updatedList = newBook.map((item, i) => {
       if (i === index) {
-        return { title: newTitle, author: newAuthor, gender: newGenre };
+        return { title: newTitle, authors: newAuthors, gender: newGenre };
       }
       return item;
     });
@@ -39,11 +39,11 @@ export default function BookIteam({
     setEditItem({});
   };
 
-//Funcion que cancelar el editar
+  //Funcion que cancelar el editar
 
   const handleCancel = () => {
     setNewTitle(title);
-    setNewAuthor(author);
+    setNewAuthors(authors);
     setNewGenre(gender);
     setEditItem({});
   };
@@ -64,9 +64,9 @@ export default function BookIteam({
           <input
             className="inputEdit"
             type="text"
-            value={newAuthor}
+            value={newAuthors}
             id="author-input"
-            onChange={(e) => setNewAuthor(e.target.value)}
+            onChange={(e) => setNewAuthors(e.target.value)}
           />
         </Card.Subtitle>
         <Card.Text>
@@ -94,12 +94,13 @@ export default function BookIteam({
   return (
     <>
       <Card.Title>{title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
       <Card.Text>{gender}</Card.Text>
       <Button
         variant="secondary"
         size="sm"
-        onClick={() => handleEdit({ title, author, gender })}>
+        onClick={() => handleEdit({ title, authors, gender })}
+      >
         Editar
       </Button>
       <Button variant="secondary" size="sm" onClick={handleDelete}>

@@ -34,20 +34,41 @@ const List = () => {
     if (data) {
       showBook(data.results);
     }
+<<<<<<< HEAD
   }, [data, titleFilter, authorFilter, genreFilter]);
+=======
+  }, [data, totalBooks]);
+>>>>>>> ee87ceb4e37be81d839f11451efcabdd1f8d17cd
 
   const showApi = async () => {
     try {
       const res = await fetch("https://gutendex.com/books/?");
       const data = await res.json();
       setData(data);
+      setTotalBooks(data.results);
     } catch (error) {
       console.log(error);
     }
   };
 
+<<<<<<< HEAD
   const showBook = (results) => {
     const arr = results.map((item, i) => {
+=======
+  const handleEdit = () => {
+    console.log("editando");
+  };
+
+  const handleDelete = (id) => {
+    const bookIndex = totalBooks.findIndex((book) => book.id === id);
+    const newList = [...totalBooks];
+    newList.splice(bookIndex, 1);
+    setTotalBooks(newList);
+  };
+
+  const showBook = () => {
+    const arr = totalBooks.map((item, i) => {
+>>>>>>> ee87ceb4e37be81d839f11451efcabdd1f8d17cd
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
@@ -58,19 +79,29 @@ const List = () => {
             </Card.Subtitle>
             <Card.Text>{item.subjects.join(", ")}</Card.Text>
           </Card.Body>
+          <button onClick={handleEdit}>Editar</button>
+          <button onClick={() => handleDelete(item.id)}>eliminar</button>
         </Card>
       );
     });
     setBook(arr);
-    setTotalBooks(results);
   };
 
+<<<<<<< HEAD
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
       if (titleFilter === title) {
         return console.log(totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())) 
       } else if (authorFilter === author) {
         return totalBooks.authors[0].name
+=======
+  const handleFilterChange = (filterType, filterValue) => {
+    let filteredBooks = totalBooks.filter((book) => {
+      if (filterType === "title") {
+        return book.title.toLowerCase().includes(filterValue.toLowerCase());
+      } else if (filterType === "author") {
+        return book.authors[0].name
+>>>>>>> ee87ceb4e37be81d839f11451efcabdd1f8d17cd
           .toLowerCase()
           .includes(filterValue.toLowerCase());
       } else if (genreFilter === genre) {
@@ -78,6 +109,7 @@ const List = () => {
           subject.toLowerCase().filter(filterValue.toLowerCase())
         );
       }
+      console.log(filteredBooks);
     });
 
     setTotalBooks(filteredBooks);
@@ -102,10 +134,17 @@ const List = () => {
         <article>
           <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} />
         </article>
-        <article>
-          <BookList newBook={newBook} setNewBook={setNewBook} />
+
+        <article className="card-contenedor">
+          {" "}
+          {book}
+          <BookList
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
+            newBook={newBook}
+            setNewBook={setNewBook}
+          />
         </article>
-        <article className="card-contenedor">{book}</article>
       </section>
     </>
   );
