@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { ModalShow } from "./ModalShow";
+import Filter from "./Filter"
 
 const List = () => {
   const [data, setData] = useState(null);
@@ -20,22 +21,6 @@ const List = () => {
   const [load, setLoad] = useState(null);
   const [error, setError] = useState(false);
 
-  const [search, setSearch] = useState("");
-  const [authorFilter, setAuthorFilter] = useState("");
-  const [genreFilter, setGenreFilter] = useState("");
-
-  const searcherBook = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const authorFilterHandler = (e) => {
-    setAuthorFilter(e.target.value);
-  };
-
-  const genreFilterHandler = (e) => {
-    setGenreFilter(e.target.value);
-  };
-
   useEffect(() => {
     showApi();
   }, []);
@@ -44,7 +29,7 @@ const List = () => {
     if (data) {
       showBook();
     }
-  }, [data, search, authorFilter, genreFilter]);
+  }, [data]);
 
   const showApi = async () => {
     try {
@@ -60,6 +45,7 @@ const List = () => {
   const showBook = () => {
     const filteredBooks = data.results
       .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+
       .filter((item) =>
         item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
       )
@@ -94,69 +80,10 @@ const List = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <section>
-      <div>
-        <input
-          value={search}
-          onChange={searcherBook}
-          type="text"
-          placeholder="Filter by Book"
-          className="form-control"
-        />
-      </div>
-      <div>
-        <input
-          value={authorFilter}
-          onChange={authorFilterHandler}
-          type="text"
-          placeholder="Filter by author"
-          className="form-control"
-        />
-      </div>
-      <div>
-        <input
-          value={genreFilter}
-          onChange={genreFilterHandler}
-          type="text"
-          placeholder="Filter by Genero"
-          className="form-control"
-          />
-=======
     <>
       <Banner />{" "}
+      <Filter />
       <section className="contenedor-main">
-        <article>
-          {" "}
-          <div>
-            <input
-              value={search}
-              onChange={searcherBook}
-              type="text"
-              placeholder="Search"
-              className="form-control"
-            />
->>>>>>> 94e2cf172c18fe36e324a7e4bf7a228bdb355ad4
-          </div>
-          <div>
-            <input
-              value={authorFilter}
-              onChange={authorFilterHandler}
-              type="text"
-              placeholder="Filter by author"
-              className="form-control"
-            />
-          </div>
-          <div>
-            <input
-              value={genreFilter}
-              onChange={genreFilterHandler}
-              type="text"
-              placeholder="Filter by Genero"
-              className="form-control"
-            />
-          </div>
-        </article>
         <article>
           <ModalShow
             addBook={addBook}
