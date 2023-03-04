@@ -93,35 +93,6 @@ const List = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <section>
-      <div>
-        <input
-          value={search}
-          onChange={searcherBook}
-          type="text"
-          placeholder="Filter by Book"
-          className="form-control"
-        />
-      </div>
-      <div>
-        <input
-          value={authorFilter}
-          onChange={authorFilterHandler}
-          type="text"
-          placeholder="Filter by author"
-          className="form-control"
-        />
-      </div>
-      <div>
-        <input
-          value={genreFilter}
-          onChange={genreFilterHandler}
-          type="text"
-          placeholder="Filter by Genero"
-          className="form-control"
-          />
-=======
     <>
       <Banner />{" "}
       <section className="contenedor-main">
@@ -135,7 +106,6 @@ const List = () => {
               placeholder="Search"
               className="form-control"
             />
->>>>>>> 94e2cf172c18fe36e324a7e4bf7a228bdb355ad4
           </div>
           <div>
             <input
