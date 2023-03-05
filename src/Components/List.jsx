@@ -67,13 +67,13 @@ const List = () => {
 
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
-      if (titleFilter === title) {
+      if (titleFilter === "title") {
         return console.log(totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())) 
-      } else if (authorFilter === author) {
+      } else if (authorFilter === "author") {
         return totalBooks.authors[0].name
           .toLowerCase()
           .includes(filterValue.toLowerCase());
-      } else if (genreFilter === genre) {
+      } else if (genreFilter === "genre") {
         return totalBooks.subjects.some((subject) =>
           subject.toLowerCase().filter(filterValue.toLowerCase())
         );
@@ -100,10 +100,24 @@ const List = () => {
           />
         </article>
         <article>
+<<<<<<< HEAD
         <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} />
         </article>
         <article>
           <BookList newBook={newBook} setNewBook={setNewBook} />
+=======
+          <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} setBook={setBook} />
+        </article>
+        <article className="card-contenedor">
+          {" "}
+          {book}
+          <BookList
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
+            newBook={newBook}
+            setNewBook={setNewBook}
+          />
+>>>>>>> daniel
         </article>
         <article className="card-contenedor">{book}</article>
       </section>
