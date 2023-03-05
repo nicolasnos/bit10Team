@@ -10,7 +10,7 @@ export default function BookList({ newBook, setNewBook }) {
       <BookIteam
         index={i}
         title={item.title}
-        authors={item.authors}
+        authors={item.authors[0].name}
         gender={item.gender}
         newBook={newBook}
         setNewBook={setNewBook}
