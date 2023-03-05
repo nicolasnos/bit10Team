@@ -10,13 +10,11 @@ import {
 } from "react-bootstrap";
 import "../css/ModalShow.css";
 
- const ModalShow = ({
+const ModalShow = ({
   addBook = { title: "", author: "", gender: "" },
   setaddBook,
   newBook,
   setNewBook,
-  totalBooks,
-  setTotalBooks,
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -55,11 +53,8 @@ import "../css/ModalShow.css";
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewBook(() => [...newBook, addBook]);
-    setaddBook({ title: "", authors: "", gender: "" });
-    const newList = [...totalBooks, addBook];
-    setTotalBooks(newList);
-    console.log(totalBooks);
+    setNewBook((prevBooks) => [...newBook, addBook]);
+    setaddBook({ title: "", author: "", gender: "" });
     handleClose();
   };
 
@@ -124,8 +119,8 @@ import "../css/ModalShow.css";
           </ModalFooter>
         </Modal.Body>
       </Modal>
-    </>
-  );
+    </>
+  );
 };
 
 export default ModalShow
