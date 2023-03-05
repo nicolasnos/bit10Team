@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import "../css/ModalShow.css";
 
-export const ModalShow = ({
+const ModalShow = ({
   addBook = { title: "", author: "", gender: "" },
   setaddBook,
   newBook,
@@ -119,6 +119,7 @@ export const ModalShow = ({
           </ModalFooter>
         </Modal.Body>
       </Modal>
-    </>
-  );
+    </>
+  );
 };
+export default ModalShow;
