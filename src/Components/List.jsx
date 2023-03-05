@@ -6,7 +6,6 @@ import ModalShow from "./ModalShow";
 import BookList from "./BookList";
 import Filters from "./Filters";
 
-
 const List = () => {
   const [data, setData] = useState(null);
   const [book, setBook] = useState(null);
@@ -14,7 +13,6 @@ const List = () => {
   const [titleFilter, setTitleFilter] = useState("");
   const [authorFilter, setAuthorFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("");
-
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
@@ -34,20 +32,32 @@ const List = () => {
     if (data) {
       showBook(data.results);
     }
-  }, [data, titleFilter, authorFilter, genreFilter]);
+  }, [data, totalBooks]);
 
   const showApi = async () => {
     try {
       const res = await fetch("https://gutendex.com/books/?");
       const data = await res.json();
       setData(data);
+      setTotalBooks(data.results);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const showBook = (results) => {
-    const arr = results.map((item, i) => {
+  const handleEdit = () => {
+    console.log("editando");
+  };
+
+  const handleDelete = (id) => {
+    const bookIndex = totalBooks.findIndex((book) => book.id === id);
+    const newList = [...totalBooks];
+    newList.splice(bookIndex, 1);
+    setTotalBooks(newList);
+  };
+
+  const showBook = () => {
+    const arr = totalBooks.map((item, i) => {
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
           {" "}
@@ -58,11 +68,12 @@ const List = () => {
             </Card.Subtitle>
             <Card.Text>{item.subjects.join(", ")}</Card.Text>
           </Card.Body>
+          <button onClick={handleEdit}>Editar</button>
+          <button onClick={() => handleDelete(item.id)}>eliminar</button>
         </Card>
       );
     });
     setBook(arr);
-    setTotalBooks(results);
   };
 
   const handleFilterChange = () => {
@@ -100,14 +111,8 @@ const List = () => {
           />
         </article>
         <article>
-<<<<<<< HEAD
-        <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} />
-        </article>
-        <article>
-          <BookList newBook={newBook} setNewBook={setNewBook} />
-=======
           <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} setBook={setBook} />
-        </article>
+          </article>
         <article className="card-contenedor">
           {" "}
           {book}
@@ -117,17 +122,10 @@ const List = () => {
             newBook={newBook}
             setNewBook={setNewBook}
           />
->>>>>>> daniel
         </article>
-        <article className="card-contenedor">{book}</article>
       </section>
     </>
   );
 };
 
-<<<<<<< HEAD
-export default List;
-=======
-export default List;
-//comentarios
->>>>>>> 7e9234855551b3e7df6a09c2290bd46fded1063e
+export default List;
