@@ -15,8 +15,6 @@ const ModalShow = ({
   setaddBook,
   newBook,
   setNewBook,
-  totalBooks,
-  setTotalBooks,
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -33,7 +31,6 @@ const ModalShow = ({
       gender: addBook.gender,
     };
     setaddBook(newObj);
-    console.log(newObj);
   };
 
   const handleAuthor = (event) => {
@@ -43,7 +40,6 @@ const ModalShow = ({
       gender: addBook.gender,
     };
     setaddBook(newobj);
-    console.log(newobj);
   };
 
   const handleGender = (event) => {
@@ -53,16 +49,12 @@ const ModalShow = ({
       gender: event.target.value,
     };
     setaddBook(newobj);
-    console.log(newobj);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewBook(() => [...newBook, addBook]);
-    setaddBook({ title: "", authors: "", gender: "" });
-    const newList = [...totalBooks, addBook];
-    setTotalBooks(newList);
-    console.log(totalBooks);
+    setNewBook((prevBooks) => [...newBook, addBook]);
+    setaddBook({ title: "", author: "", gender: "" });
     handleClose();
   };
 
@@ -130,5 +122,4 @@ const ModalShow = ({
     </>
   );
 };
-
 export default ModalShow;

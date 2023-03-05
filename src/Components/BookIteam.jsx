@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 export default function BookIteam({
   index,
   title,
-  authors,
+  author,
   gender,
   newBook,
   setNewBook,
@@ -12,7 +12,7 @@ export default function BookIteam({
   setEditItem,
 }) {
   const [newTitle, setNewTitle] = useState(title);
-  const [newAuthors, setNewAuthors] = useState(authors);
+  const [newAuthor, setNewAuthor] = useState(author);
   const [newGenre, setNewGenre] = useState(gender);
 
   //Fucncion que elimina la tarjeta
@@ -25,13 +25,13 @@ export default function BookIteam({
   //Funcion que editar la tarjeta
 
   const handleEdit = () => {
-    setEditItem({ index, title, authors, gender });
+    setEditItem({ index, title, author, gender });
   };
 
   const handleUpdate = () => {
     const updatedList = newBook.map((item, i) => {
       if (i === index) {
-        return { title: newTitle, authors: newAuthors, gender: newGenre };
+        return { title: newTitle, author: newAuthor, gender: newGenre };
       }
       return item;
     });
@@ -43,7 +43,7 @@ export default function BookIteam({
 
   const handleCancel = () => {
     setNewTitle(title);
-    setNewAuthors(authors);
+    setNewAuthor(author);
     setNewGenre(gender);
     setEditItem({});
   };
@@ -64,9 +64,9 @@ export default function BookIteam({
           <input
             className="inputEdit"
             type="text"
-            value={newAuthors}
+            value={newAuthor}
             id="author-input"
-            onChange={(e) => setNewAuthors(e.target.value)}
+            onChange={(e) => setNewAuthor(e.target.value)}
           />
         </Card.Subtitle>
         <Card.Text>
@@ -94,12 +94,12 @@ export default function BookIteam({
   return (
     <>
       <Card.Title>{title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
       <Card.Text>{gender}</Card.Text>
       <Button
         variant="secondary"
         size="sm"
-        onClick={() => handleEdit({ title, authors, gender })}
+        onClick={() => handleEdit({ title, author, gender })}
       >
         Editar
       </Button>
