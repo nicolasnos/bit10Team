@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter, authorFilter, genreFilter, totalBooks, setTotalBooks }) => {
+const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter, authorFilter, genreFilter, totalBooks, setTotalBooks, setBook }) => {
 
   const searcherBook = (e) => {
     setTitleFilter(e.target.value);
@@ -42,7 +42,7 @@ const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter,
             
         );}
       );
-      setTotalBooks(arr)
+      setBook(arr)
     };
     
 

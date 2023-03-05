@@ -34,11 +34,7 @@ const List = () => {
     if (data) {
       showBook(data.results);
     }
-<<<<<<< HEAD
   }, [data, titleFilter, authorFilter, genreFilter]);
-=======
-  }, [data, totalBooks]);
->>>>>>> ee87ceb4e37be81d839f11451efcabdd1f8d17cd
 
   const showApi = async () => {
     try {
@@ -82,24 +78,15 @@ const List = () => {
     setBook(arr);
   };
 
-<<<<<<< HEAD
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
-      if (titleFilter === title) {
+      if (titleFilter === "title") {
         return console.log(totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())) 
-      } else if (authorFilter === author) {
+      } else if (authorFilter === "author") {
         return totalBooks.authors[0].name
-=======
-  const handleFilterChange = (filterType, filterValue) => {
-    let filteredBooks = totalBooks.filter((book) => {
-      if (filterType === "title") {
-        return book.title.toLowerCase().includes(filterValue.toLowerCase());
-      } else if (filterType === "author") {
-        return book.authors[0].name
->>>>>>> ee87ceb4e37be81d839f11451efcabdd1f8d17cd
           .toLowerCase()
           .includes(filterValue.toLowerCase());
-      } else if (genreFilter === genre) {
+      } else if (genreFilter === "genre") {
         return totalBooks.subjects.some((subject) =>
           subject.toLowerCase().filter(filterValue.toLowerCase())
         );
@@ -127,9 +114,8 @@ const List = () => {
           />
         </article>
         <article>
-          <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} />
+          <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} setBook={setBook} />
         </article>
-
         <article className="card-contenedor">
           {" "}
           {book}
