@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import "../css/ModalShow.css";
 
- const ModalShow = ({
+const ModalShow = ({
   addBook = { title: "", author: "", gender: "" },
   setaddBook,
   newBook,
@@ -33,6 +33,7 @@ import "../css/ModalShow.css";
       gender: addBook.gender,
     };
     setaddBook(newObj);
+    console.log(newObj);
   };
 
   const handleAuthor = (event) => {
@@ -42,6 +43,7 @@ import "../css/ModalShow.css";
       gender: addBook.gender,
     };
     setaddBook(newobj);
+    console.log(newobj);
   };
 
   const handleGender = (event) => {
@@ -51,6 +53,7 @@ import "../css/ModalShow.css";
       gender: event.target.value,
     };
     setaddBook(newobj);
+    console.log(newobj);
   };
 
   const handleSubmit = (event) => {
@@ -128,4 +131,4 @@ import "../css/ModalShow.css";
   );
 };
 
-export default ModalShow
+export default ModalShow;

@@ -111,4 +111,9 @@ const List = () => {
   );
 };
 
+<<<<<<< HEAD
 export default List;
+=======
+export default List;
+//comentarios
+>>>>>>> 7e9234855551b3e7df6a09c2290bd46fded1063e
