@@ -4,38 +4,40 @@ import { Card, Button } from "react-bootstrap";
 export default function BookIteam({
   index,
   title,
-  author,
-  gender,
+  authors,
+  subjects,
   newBook,
   setNewBook,
   editItem,
   setEditItem,
+  setTotalBooks,
+  totalBooks,
 }) {
   const [newTitle, setNewTitle] = useState(title);
-  const [newAuthor, setNewAuthor] = useState(author);
-  const [newGenre, setNewGenre] = useState(gender);
+  const [newAuthor, setNewAuthor] = useState(authors);
+  const [newGenre, setNewGenre] = useState(subjects);
 
   //Fucncion que elimina la tarjeta
   const handleDelete = () => {
-    const updatedBookList = [...newBook];
+    const updatedBookList = [...totalBooks];
     updatedBookList.splice(index, 1);
-    setNewBook(updatedBookList);
+    setTotalBooks(updatedBookList);
   };
 
   //Funcion que editar la tarjeta
 
   const handleEdit = () => {
-    setEditItem({ index, title, author, gender });
+    setEditItem({ index, title, authors, subjects });
   };
 
   const handleUpdate = () => {
-    const updatedList = newBook.map((item, i) => {
+    const updatedList = totalBooks.map((item, i) => {
       if (i === index) {
-        return { title: newTitle, author: newAuthor, gender: newGenre };
+        return { title: newTitle, authors: newAuthor, subjects: newGenre };
       }
       return item;
     });
-    setNewBook(updatedList);
+    setTotalBooks(updatedList);
     setEditItem({});
   };
 
@@ -43,8 +45,8 @@ export default function BookIteam({
 
   const handleCancel = () => {
     setNewTitle(title);
-    setNewAuthor(author);
-    setNewGenre(gender);
+    setNewAuthor(authors);
+    setNewGenre(subjects);
     setEditItem({});
   };
 
@@ -94,18 +96,19 @@ export default function BookIteam({
   return (
     <>
       <Card.Title>{title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
-      <Card.Text>{gender}</Card.Text>
+      <Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
+      <Card.Text>{subjects}</Card.Text>
       <Button
         variant="secondary"
         size="sm"
-        onClick={() => handleEdit({ title, author, gender })}
+        onClick={() => handleEdit({ title, authors, subjects })}
       >
         Editar
       </Button>
       <Button variant="secondary" size="sm" onClick={handleDelete}>
         Eliminar
       </Button>
+          
     </>
   );
 }

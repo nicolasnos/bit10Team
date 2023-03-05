@@ -30,7 +30,7 @@ const List = () => {
 
   useEffect(() => {
     if (data) {
-      showBook(data.results);
+      /* showBook(data.results); */
     }
   }, [data, totalBooks]);
 
@@ -56,7 +56,7 @@ const List = () => {
     setTotalBooks(newList);
   };
 
-  const showBook = () => {
+  /*   const showBook = () => {
     const arr = totalBooks.map((item, i) => {
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
@@ -66,7 +66,7 @@ const List = () => {
             <Card.Subtitle className="mb-2 text-muted">
               {item.authors[0].name}
             </Card.Subtitle>
-            <Card.Text>{item.subjects.join(", ")}</Card.Text>
+            <Card.Text>{item.subjects}</Card.Text>
           </Card.Body>
           <button onClick={handleEdit}>Editar</button>
           <button onClick={() => handleDelete(item.id)}>eliminar</button>
@@ -74,12 +74,14 @@ const List = () => {
       );
     });
     setBook(arr);
-  };
+  }; */
 
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
       if (titleFilter === "title") {
-        return console.log(totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())) 
+        return console.log(
+          totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())
+        );
       } else if (authorFilter === "author") {
         return totalBooks.authors[0].name
           .toLowerCase()
@@ -111,11 +113,22 @@ const List = () => {
           />
         </article>
         <article>
-          <Filters handleFilter={handleFilterChange} setAuthorFilter={setAuthorFilter} setGenreFilter={setGenreFilter} setTitleFilter={setTitleFilter} genreFilter={genreFilter} authorFilter={authorFilter} titleFilter={titleFilter} totalBooks={totalBooks} setTotalBooks={setTotalBooks} setBook={setBook} />
-          </article>
+          <Filters
+            handleFilter={handleFilterChange}
+            setAuthorFilter={setAuthorFilter}
+            setGenreFilter={setGenreFilter}
+            setTitleFilter={setTitleFilter}
+            genreFilter={genreFilter}
+            authorFilter={authorFilter}
+            titleFilter={titleFilter}
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
+            setBook={setBook}
+          />
+        </article>
         <article className="card-contenedor">
           {" "}
-          {book}
+          {/* {book} */}
           <BookList
             totalBooks={totalBooks}
             setTotalBooks={setTotalBooks}
@@ -128,4 +141,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default List;

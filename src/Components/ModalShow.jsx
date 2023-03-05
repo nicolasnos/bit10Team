@@ -119,7 +119,7 @@ const ModalShow = ({
           </ModalFooter>
         </Modal.Body>
       </Modal>
-    </>
-  );
+    </>
+  );
 };
 export default ModalShow;

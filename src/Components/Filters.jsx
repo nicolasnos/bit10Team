@@ -1,8 +1,17 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter, authorFilter, genreFilter, totalBooks, setTotalBooks, setBook }) => {
-
+const Filters = ({
+  setAuthorFilter,
+  setGenreFilter,
+  setTitleFilter,
+  titleFilter,
+  authorFilter,
+  genreFilter,
+  totalBooks,
+  setTotalBooks,
+  setBook,
+}) => {
   const searcherBook = (e) => {
     setTitleFilter(e.target.value);
   };
@@ -29,22 +38,21 @@ const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter,
           subject.toLowerCase().includes(genreFilter.toLowerCase())
         )
       );
-      const arr = filteredBooks.map((item, i) => {
-        return (
-          <Card key={i} style={{ width: "18rem" }}>
-              <Card.Subtitle className="mb-2 text-muted">
-                {item.authors[0].name}
-              </Card.Subtitle>
-              <Card.Text>{item.subjects.join(", ")}</Card.Text>
-              <Button variant="primary">Edit button</Button>
-              <Button variant="danger">Delete button</Button>
-          </Card>
-            
-        );}
+    const arr = filteredBooks.map((item, i) => {
+      return (
+        <Card key={i} style={{ width: "18rem" }}>
+          <Card.Title> {item.title} </Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            {item.authors[0].name || item.authors}
+          </Card.Subtitle>
+          <Card.Text>{item.subjects.join(", ")}</Card.Text>
+          <Button variant="primary">Edit button</Button>
+          <Button variant="danger">Delete button</Button>
+        </Card>
       );
-      setBook(arr)
-    };
-    
+    });
+    setTotalBooks(arr);
+  };
 
   return (
     <div className="filters">
