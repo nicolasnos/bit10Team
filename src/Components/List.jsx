@@ -29,19 +29,31 @@ const List = () => {
     if (data) {
       showBook(data.results);
     }
-  }, [data]);
+  }, [data, totalBooks]);
 
   const showApi = async () => {
     try {
       const res = await fetch("https://gutendex.com/books/?");
       const data = await res.json();
       setData(data);
+      setTotalBooks(data.results);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleEdit = () => {
+    console.log("editando");
+  };
+
+  const handleDelete = (id) => {
+    const bookIndex = totalBooks.findIndex((book) => book.id === id);
+    const newList = [...totalBooks];
+    newList.splice(bookIndex, 1);
+    setTotalBooks(newList);
+  };
+
   const showBook = () => {
-    setTotalBooks(data.results);
     const arr = totalBooks.map((item, i) => {
       return (
         <Card key={i} style={{ width: "18rem" }} className="card">
@@ -53,15 +65,16 @@ const List = () => {
             </Card.Subtitle>
             <Card.Text>{item.subjects.join(", ")}</Card.Text>
           </Card.Body>
+          <button onClick={handleEdit}>Editar</button>
+          <button onClick={() => handleDelete(item.id)}>eliminar</button>
         </Card>
       );
     });
     setBook(arr);
-    setTotalBooks(results);
   };
 
   const handleFilterChange = (filterType, filterValue) => {
-    let filteredBooks = data.results.filter((book) => {
+    let filteredBooks = totalBooks.filter((book) => {
       if (filterType === "title") {
         return book.title.toLowerCase().includes(filterValue.toLowerCase());
       } else if (filterType === "author") {
@@ -73,6 +86,7 @@ const List = () => {
           subject.toLowerCase().includes(filterValue.toLowerCase())
         );
       }
+      console.log(filteredBooks);
     });
 
     setTotalBooks(filteredBooks);
@@ -97,9 +111,6 @@ const List = () => {
         <article>
           <Filters handleFilter={handleFilterChange} />
         </article>
-        <article>
-          <BookList newBook={newBook} setNewBook={setNewBook} />
-        </article>
 
         <article className="card-contenedor">
           {" "}
@@ -111,11 +122,10 @@ const List = () => {
             setNewBook={setNewBook}
           />
         </article>
-
-        <article className="card-contenedor"> {book}</article>
       </section>
     </>
   );
 };
 
 export default List;
+//comentario
