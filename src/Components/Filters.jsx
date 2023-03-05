@@ -32,6 +32,7 @@ const Filters = ({ setAuthorFilter, setGenreFilter, setTitleFilter, titleFilter,
       const arr = filteredBooks.map((item, i) => {
         return (
           <Card key={i} style={{ width: "18rem" }}>
+            <Card.Title> {item.title} </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 {item.authors[0].name}
               </Card.Subtitle>

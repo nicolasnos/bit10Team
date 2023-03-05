@@ -15,8 +15,6 @@ const ModalShow = ({
   setaddBook,
   newBook,
   setNewBook,
-  totalBooks,
-  setTotalBooks,
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -58,11 +56,8 @@ const ModalShow = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewBook(() => [...newBook, addBook]);
-    setaddBook({ title: "", authors: "", gender: "" });
-    const newList = [...totalBooks, addBook];
-    setTotalBooks(newList);
-    console.log(totalBooks);
+    setNewBook((prevBooks) => [...newBook, addBook]);
+    setaddBook({ title: "", author: "", gender: "" });
     handleClose();
   };
 
@@ -127,8 +122,8 @@ const ModalShow = ({
           </ModalFooter>
         </Modal.Body>
       </Modal>
-    </>
-  );
+    </>
+  );
 };
 
 export default ModalShow;
