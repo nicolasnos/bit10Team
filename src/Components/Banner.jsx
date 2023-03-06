@@ -9,8 +9,8 @@ const Banner = () => {
           <span>JUST ONE</span> CLICK AWAY
         </h2>
         <p>
-          "La capacidad y gusto por la lectura da acceso
-          <br /> a lo que ya ha sido descubierto por otros".
+          "La capacidad y gusto por la lectura da acceso a lo que ya ha sido
+          descubierto por otros".
         </p>
         <div>
           <a href="#">Abraham Lincon</a>

@@ -18,7 +18,7 @@
 
 .background div h2 {
   font-size: 5rem;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 span {
@@ -41,26 +41,68 @@ span {
   border-radius: 15px;
 }
 
-@media screen and (max-width: 320px) {
-  h2 {
-    font-size: 1rem;
+@media screen and (max-width: 960px) {
+  .content {
+    margin-top: 1vh;
   }
-  span {
-    font-size: 75px;
+  .background div h2 {
+    font-size: 80px;
+    margin-top: 30%;
   }
-  .background p {
-    font-size: 1.4rem;
+
+  .background div span {
+    font-size: 100px;
+  }
+  .background div p {
+    font-size: 30px;
+  }
+
+  .background a {
+    font-size: 25px;
   }
 }
-@media screen and (max-width: 960px) {
+
+@media screen and (max-width: 800px) {
+  .content {
+    margin-top: 30vh;
+  }
   .background div h2 {
-    font-size: 25px;
+    font-size: 50px;
     margin-top: 20%;
   }
-  span {
-    font-size: 20px;
+
+  .background div span {
+    font-size: 60px;
   }
-  .background p {
-    font-size: 1.4rem;
+  .background div p {
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+
+  .background a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    margin-top: 30vh;
+  }
+
+  .background div h2 {
+    font-size: 50px;
+    margin-top: 20%;
+  }
+
+  .background div span {
+    font-size: 55px;
+  }
+  .background div p {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  .background a {
+    font-size: 15px;
   }
 }
