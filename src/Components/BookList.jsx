@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import BookIteam from "./BookIteam";
 import Card from "react-bootstrap/Card";
+import "../css/List.css";
+import "../css/Card.css";
 
 const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
   const [editItem, setEditItem] = useState({});
@@ -21,7 +23,7 @@ const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
       />
     </Card>
   ));
-  return <Card.Body>{cardBookElemento}</Card.Body>;
+  return <Card.Body className="card-contenedor">{cardBookElemento}</Card.Body>;
 };
 
 export default BookList;
