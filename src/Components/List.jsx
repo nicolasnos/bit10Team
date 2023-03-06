@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/List.css";
 import Card from "react-bootstrap/Card";
 import Banner from "./Banner";
-import ModalShow from "./ModalShow";
+import { ModalShow } from "./ModalShow";
 import BookList from "./BookList";
 import Filters from "./Filters";
 
@@ -45,17 +45,6 @@ const List = () => {
     }
   };
 
-  const handleEdit = () => {
-    console.log("editando");
-  };
-
-  const handleDelete = (id) => {
-    const bookIndex = totalBooks.findIndex((book) => book.id === id);
-    const newList = [...totalBooks];
-    newList.splice(bookIndex, 1);
-    setTotalBooks(newList);
-  };
-
   /*   const showBook = () => {
     const arr = totalBooks.map((item, i) => {
       return (
@@ -82,11 +71,11 @@ const List = () => {
         return console.log(
           totalBooks.title.toLowerCase().includes(filterValue.toLowerCase())
         );
-      } else if (authorFilter === "author") {
+      } else if (authorFilter === "authors") {
         return totalBooks.authors[0].name
           .toLowerCase()
           .includes(filterValue.toLowerCase());
-      } else if (genreFilter === "genre") {
+      } else if (genreFilter === "subject") {
         return totalBooks.subjects.some((subject) =>
           subject.toLowerCase().filter(filterValue.toLowerCase())
         );

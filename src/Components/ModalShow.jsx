@@ -11,42 +11,44 @@ import {
 import "../css/ModalShow.css";
 
 const ModalShow = ({
-  addBook = { title: "", author: "", gender: "" },
+  addBook = { title: "", authors: "", subjects: "" },
   setaddBook,
   newBook,
   setNewBook,
+  totalBooks,
+  setTotalBooks,
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
   //Funciones que maneja el modal
   const handleClose = () => {
-    setaddBook({ title: "", author: "", gender: "" }), setModalShow(false);
+    setaddBook({ title: "", authors: "", subjects: "" }), setModalShow(false);
   };
   const handleShow = () => setModalShow(true);
 
   const handleTitle = (event) => {
     const newObj = {
       title: event.target.value,
-      author: addBook.author,
-      gender: addBook.gender,
+      authors: addBook.authors,
+      subjects: addBook.subjects,
     };
     setaddBook(newObj);
   };
 
-  const handleAuthor = (event) => {
+  const handleAuthors = (event) => {
     const newobj = {
       title: addBook.title,
-      author: event.target.value,
-      gender: addBook.gender,
+      authors: event.target.value,
+      subjects: addBook.subjects,
     };
     setaddBook(newobj);
   };
 
-  const handleGender = (event) => {
+  const handleSubjects = (event) => {
     const newobj = {
       title: addBook.title,
-      author: addBook.author,
-      gender: event.target.value,
+      authors: addBook.authors,
+      subjects: event.target.value,
     };
     setaddBook(newobj);
   };
@@ -54,7 +56,10 @@ const ModalShow = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     setNewBook((prevBooks) => [...newBook, addBook]);
-    setaddBook({ title: "", author: "", gender: "" });
+    setaddBook({ title: "", authors: "", subjects: "" });
+    const updatedBookList = [...totalBooks];
+    updatedBookList.push(addBook);
+    console.log(setTotalBooks(updatedBookList));
     handleClose();
   };
 
@@ -65,7 +70,6 @@ const ModalShow = ({
           Agregar
         </Button>
       </div>
-
       <Modal size="lg" show={modalShow} onHide={handleClose}>
         <Modal.Header className="modal-header " closeButton>
           <ModalTitle className="titulo">Nuevo Libro</ModalTitle>
@@ -90,8 +94,8 @@ const ModalShow = ({
                 type="text"
                 placeholder="Ingrese el autor"
                 required
-                value={addBook.author}
-                onChange={handleAuthor}
+                value={addBook.authors}
+                onChange={handleAuthors}
               />
             </Form.Group>
             <Form.Group>
@@ -101,8 +105,8 @@ const ModalShow = ({
                 type="text"
                 placeholder="Ingrese el género"
                 required
-                value={addBook.gender}
-                onChange={handleGender}
+                value={addBook.subjects}
+                onChange={handleSubjects}
               />
             </Form.Group>
             <div className="btn-contenedor">
@@ -119,7 +123,8 @@ const ModalShow = ({
           </ModalFooter>
         </Modal.Body>
       </Modal>
-    </>
-  );
+          
+    </>
+  );
 };
-export default ModalShow;
+export { ModalShow };

@@ -10,7 +10,6 @@ const Filters = ({
   genreFilter,
   totalBooks,
   setTotalBooks,
-  setBook,
 }) => {
   const searcherBook = (e) => {
     setTitleFilter(e.target.value);
@@ -31,7 +30,9 @@ const Filters = ({
         item.title.toLowerCase().includes(titleFilter.toLowerCase())
       )
       .filter((item) =>
-        item.authors[0].name.toLowerCase().includes(authorFilter.toLowerCase())
+        item.authors[0].name
+          ? item.authors[0].name
+          : item.authors.toLowerCase().includes(authorFilter.toLowerCase())
       )
       .filter((item) =>
         item.subjects.some((subject) =>
@@ -43,9 +44,9 @@ const Filters = ({
         <Card key={i} style={{ width: "18rem" }}>
           <Card.Title> {item.title} </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            {item.authors[0].name || item.authors}
+            {item.authors[0].name ? item.authors[0].name : item.authors}
           </Card.Subtitle>
-          <Card.Text>{item.subjects.join(", ")}</Card.Text>
+          <Card.Text>{item.subjects[0]}</Card.Text>
           <Button variant="primary">Edit button</Button>
           <Button variant="danger">Delete button</Button>
         </Card>
