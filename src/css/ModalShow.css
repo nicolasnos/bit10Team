@@ -1,3 +1,13 @@
+.btn-modal{
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(185, 75, 62, 1) 54%,
+    rgba(0, 0, 0, 1) 94%)
+}
+
+
 .modal-header {
   background-color: var(--colorNaraja);
   font-family: "Roboto Mono", monospace;

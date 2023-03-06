@@ -65,8 +65,8 @@ const ModalShow = ({
 
   return (
     <>
-      <div className="  d-grid gap-2 ">
-        <Button className="btn-modal" onClick={handleShow}>
+      <div className="d-grid gap-2 col-6 mx-auto ">
+        <Button className="btn-modal btn btn-lg" onClick={handleShow}>
           Agregar
         </Button>
       </div>

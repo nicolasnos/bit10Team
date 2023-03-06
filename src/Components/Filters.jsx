@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import "../css/Filters.css"
 
 const Filters = ({
   setAuthorFilter,
@@ -59,7 +60,7 @@ const Filters = ({
     <div className="filters">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Titulo:</label>
+          <label htmlFor="title" className="label-filters">Titulo:</label>
           <input
             type="text"
             className="form-control"
@@ -69,7 +70,7 @@ const Filters = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="author">Autor:</label>
+          <label htmlFor="author" className="label-filters">Autor:</label>
           <input
             type="text"
             className="form-control"
@@ -79,7 +80,7 @@ const Filters = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="genre">Genero:</label>
+          <label htmlFor="genre" className="label-filters">Genero:</label>
           <input
             type="text"
             className="form-control"
@@ -88,7 +89,7 @@ const Filters = ({
             onChange={genreFilterHandler}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className=" btn btn-primary">
           Buscar
         </button>
       </form>

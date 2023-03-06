@@ -90,18 +90,7 @@ const List = () => {
     <>
       <Banner />
       <section className="contenedor-main">
-        <article>
-          <ModalShow
-            addBook={addBook}
-            setaddBook={setAddBook}
-            newBook={newBook}
-            setNewBook={setNewBook}
-            setBook={setBook}
-            totalBooks={totalBooks}
-            setTotalBooks={setTotalBooks}
-          />
-        </article>
-        <article>
+        <article className="contenedor-filtros">
           <Filters
             handleFilter={handleFilterChange}
             setAuthorFilter={setAuthorFilter}
@@ -113,6 +102,17 @@ const List = () => {
             totalBooks={totalBooks}
             setTotalBooks={setTotalBooks}
             setBook={setBook}
+          />
+        </article>
+        <article>
+          <ModalShow
+            addBook={addBook}
+            setaddBook={setAddBook}
+            newBook={newBook}
+            setNewBook={setNewBook}
+            setBook={setBook}
+            totalBooks={totalBooks}
+            setTotalBooks={setTotalBooks}
           />
         </article>
         <article className="card-contenedor">
