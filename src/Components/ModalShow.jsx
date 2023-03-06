@@ -60,6 +60,7 @@ const ModalShow = ({
     const updatedBookList = [...totalBooks];
     updatedBookList.push(addBook);
     console.log(setTotalBooks(updatedBookList));
+    console.log(totalBooks);
     handleClose();
   };
 

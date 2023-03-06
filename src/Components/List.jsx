@@ -83,7 +83,6 @@ const List = () => {
     });
 
     setTotalBooks(filteredBooks);
-    showBook(filteredBooks);
   };
 
   return (

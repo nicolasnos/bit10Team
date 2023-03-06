@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import "../css/Filters.css"
+import "../css/Filters.css";
 
 const Filters = ({
   setAuthorFilter,
@@ -25,13 +25,13 @@ const Filters = ({
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log("sin filtro", totalBooks);
     const filteredBooks = totalBooks
       .filter((item) =>
         item.title.toLowerCase().includes(titleFilter.toLowerCase())
       )
       .filter((item) =>
-        item.authors[0].name
+        item.authors && item.authors[0].name
           ? item.authors[0].name
           : item.authors.toLowerCase().includes(authorFilter.toLowerCase())
       )
@@ -40,19 +40,24 @@ const Filters = ({
           subject.toLowerCase().includes(genreFilter.toLowerCase())
         )
       );
+    console.log("filtrado", filteredBooks);
     const arr = filteredBooks.map((item, i) => {
       return (
         <Card key={i} style={{ width: "18rem" }}>
-          <Card.Title> {item.title} </Card.Title>
+          <Card.Title>{item.title}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            {item.authors[0].name ? item.authors[0].name : item.authors}
+            {item.authors && item.authors[0].name
+              ? item.authors[0].name
+              : item.authors}
           </Card.Subtitle>
-          <Card.Text>{item.subjects[0]}</Card.Text>
+          <Card.Text>{item.subject}</Card.Text>
           <Button variant="primary">Edit button</Button>
           <Button variant="danger">Delete button</Button>
         </Card>
       );
     });
+    console.log("mapeo", arr);
+
     setTotalBooks(arr);
   };
 
@@ -60,7 +65,9 @@ const Filters = ({
     <div className="filters">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title" className="label-filters">Titulo:</label>
+          <label htmlFor="title" className="label-filters">
+            Titulo:
+          </label>
           <input
             type="text"
             className="form-control"
@@ -70,7 +77,9 @@ const Filters = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="author" className="label-filters">Autor:</label>
+          <label htmlFor="author" className="label-filters">
+            Autor:
+          </label>
           <input
             type="text"
             className="form-control"
@@ -80,7 +89,9 @@ const Filters = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="genre" className="label-filters">Genero:</label>
+          <label htmlFor="genre" className="label-filters">
+            Genero:
+          </label>
           <input
             type="text"
             className="form-control"

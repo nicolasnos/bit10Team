@@ -12,7 +12,11 @@ const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
       <BookIteam
         index={i}
         title={item.title}
-        authors={item.authors[0].name ? item.authors[0].name : item.authors}
+        authors={
+          item.authors && item.authors[0].name
+            ? item.authors[0].name
+            : item.authors
+        }
         subjects={item.subjects}
         newBook={newBook}
         setNewBook={setNewBook}
