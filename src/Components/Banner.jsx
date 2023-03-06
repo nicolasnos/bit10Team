@@ -12,12 +12,9 @@ const Banner = () => {
           "La capacidad y gusto por la lectura da acceso
           <br /> a lo que ya ha sido descubierto por otros".
         </p>
-        <a
-          href="https://www.muyinteresante.es/actualidad/13260.html"
-          target={"_blank"}
-        >
-          Abraham Lincon
-        </a>
+        <div>
+          <a href="#">Abraham Lincon</a>
+        </div>
       </div>
     </section>
   );

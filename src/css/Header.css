@@ -1,35 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Rampart+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Mynerve&family=Rampart+One&display=swap");
 
 header {
-  min-width: 375px;
-  display: flex;
-  width: 100vw;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 20vh;
+  height: 20px;
 }
 
-header img {
-  margin-top: -30px;
-  padding-left: 30px;
+header .contenedor_img {
+  object-fit: cover;
 }
 
- nav{
-  height: 18vh;
-  width: 27vw;
-  background-color: #1E1C25;
-  border-radius: 10% 0% 0% 34% / 0% 10% 10% 61% ;
+nav {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  background-color: #1e1c25;
   font-family: "Roboto Mono", monospace;
-  opacity: 0.9;
 }
 
- nav a{
-  color: #F1D2B3;
-  font-size: 2rem;
+nav .container-link a {
+  color: #f1d2b3;
+  font-size: 1.5rem;
   text-decoration: none;
-  margin: 20px, 20px;
+}
+
+@media screen and (max-width: 394px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .container-link a {
+    margin: 10px;
+    font-size: 1rem;
+  }
 }

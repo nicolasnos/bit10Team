@@ -9,22 +9,24 @@ const Header = () => {
   return (
     <BrowserRouter>
       <header>
-        <Figure className="contenedor">
-          <Figure.Image
-            className="contenedor_img"
-            width={254}
-            height={154}
-            alt="imagen de fondo"
-            src="../public/img/bookLogo.png"
-          />
-        </Figure>
-        <nav className="py-4 text-center">
-          <Link className="px-4" to="/">
-            Inicio
-          </Link>
-          <Link className="px-4" to="/team">
-            Team
-          </Link>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+          <Figure className="contenedor">
+            <Figure.Image
+              className="contenedor_img"
+              width={120}
+              height={154}
+              alt="imagen de fondo"
+              src="../public/img/bookLogo.png"
+            />
+          </Figure>
+          <div className="container-link">
+            <Link className="px-4" to="/">
+              Inicio
+            </Link>
+            <Link className="px-5" to="/team">
+              Team
+            </Link>
+          </div>
         </nav>
       </header>
       <Routes>
