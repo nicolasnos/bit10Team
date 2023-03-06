@@ -42,8 +42,15 @@ const Filters = ({
       );
     console.log("filtrado", filteredBooks);
     const arr = filteredBooks.map((item, i) => {
-      return (
-        <Card key={i} style={{ width: "18rem" }}>
+      return {
+        title: item.title,
+        authors:
+          item.authors && item.authors[0].name
+            ? item.authors[0].name
+            : item.authors,
+        subjects: item.subjects,
+      };
+      /*         <Card key={i} style={{ width: "18rem" }}>
           <Card.Title>{item.title}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             {item.authors && item.authors[0].name
@@ -53,8 +60,7 @@ const Filters = ({
           <Card.Text>{item.subject}</Card.Text>
           <Button variant="primary">Edit button</Button>
           <Button variant="danger">Delete button</Button>
-        </Card>
-      );
+        </Card> */
     });
     console.log("mapeo", arr);
 
