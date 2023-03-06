@@ -2,30 +2,40 @@
 
 header {
   height: 20px;
-  /* min-width: 375px;
-  display: flex;
-  width: 100vw;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 20vh;
-  object-fit: cover; */
 }
 
-header img {
+header .contenedor_img {
   object-fit: cover;
 }
 
 nav {
+  display: flex;
+  flex-direction: row;
   background-color: #1e1c25;
   font-family: "Roboto Mono", monospace;
-}
-
-.container-link {
-  padding-left: 130vh;
 }
 
 nav .container-link a {
   color: #f1d2b3;
   font-size: 1.5rem;
   text-decoration: none;
+}
+
+@media screen and (max-width: 394px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .container-link a {
+    margin: 10px;
+    font-size: 1rem;
+  }
 }

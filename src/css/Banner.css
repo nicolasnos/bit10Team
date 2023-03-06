@@ -1,6 +1,5 @@
 .background {
   background-image: url("../../public/img/fondo.png");
-  border-radius: 10% 0% 0% 34% / 0% 10% 10% 61%;
   object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,13 +40,25 @@ span {
   padding: 15px;
   border-radius: 15px;
 }
-@media screen and (max-width: 960px) {
-  .background div h2 {
-    font-size: 5rem;
-    margin-top: 20%;
+
+@media screen and (max-width: 320px) {
+  h2 {
+    font-size: 1rem;
   }
   span {
     font-size: 75px;
+  }
+  .background p {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 960px) {
+  .background div h2 {
+    font-size: 25px;
+    margin-top: 20%;
+  }
+  span {
+    font-size: 20px;
   }
   .background p {
     font-size: 1.4rem;
