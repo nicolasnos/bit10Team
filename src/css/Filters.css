@@ -7,6 +7,8 @@
   display: inline-block;
   margin-right: 10px;
   vertical-align: top;
+  position: relative;
+  margin: 1rem 0;
 }
 
 .label-filters {
@@ -14,6 +16,21 @@
   font-size: medium;
   letter-spacing: 3px;
   font-weight: bold;
+}
+
+.form-control-filtro {
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid #b94b3e;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  background-color: transparent;
+}
+
+.form-control-filtro:focus,
+.form-control-filtro:active {
+  border-bottom-color: var(--colorAzul);
+  outline: none;
 }
 
 .btn-primary {
@@ -33,4 +50,19 @@
 
 .btn-primary:active {
   transform: translatey(5px);
+}
+
+@media screen and (max-width: 480px) {
+  .filters form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25px;
+  }
+
+  .form-control-filtro {
+    width: 90%;
+  }
 }

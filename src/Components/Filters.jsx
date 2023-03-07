@@ -77,7 +77,7 @@ const Filters = ({
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-filtro"
             id="title"
             value={titleFilter}
             onChange={searcherBook}
@@ -89,7 +89,7 @@ const Filters = ({
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-filtro"
             id="author"
             value={authorFilter}
             onChange={authorFilterHandler}
@@ -101,7 +101,7 @@ const Filters = ({
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-filtro"
             id="genre"
             value={genreFilter}
             onChange={genreFilterHandler}
