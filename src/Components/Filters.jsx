@@ -11,6 +11,7 @@ const Filters = ({
   genreFilter,
   totalBooks,
   setTotalBooks,
+  book,
 }) => {
   const searcherBook = (e) => {
     setTitleFilter(e.target.value);

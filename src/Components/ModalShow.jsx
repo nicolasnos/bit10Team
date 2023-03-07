@@ -48,7 +48,7 @@ const ModalShow = ({
     const newobj = {
       title: addBook.title,
       authors: addBook.authors,
-      subjects: event.target.value,
+      subjects: [event.target.value],
     };
     setaddBook(newobj);
   };
@@ -124,7 +124,6 @@ const ModalShow = ({
           </ModalFooter>
         </Modal.Body>
       </Modal>
-          
     </>
   );
 };

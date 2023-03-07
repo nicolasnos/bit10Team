@@ -40,6 +40,7 @@ const List = () => {
       const data = await res.json();
       setData(data);
       setTotalBooks(data.results);
+      setBook(data.results);
     } catch (error) {
       console.log(error);
     }
@@ -101,6 +102,7 @@ const List = () => {
             totalBooks={totalBooks}
             setTotalBooks={setTotalBooks}
             setBook={setBook}
+            book={book}
           />
         </article>
         <article>
