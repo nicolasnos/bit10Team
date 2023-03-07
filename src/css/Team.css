@@ -1,0 +1,44 @@
+.contenedor-fondo {
+  margin-top: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+.contenedor-nosotros {
+  margin-top: 100px;
+}
+a {
+  text-decoration: none;
+  text-align: center;
+}
+.nosotros-titulo {
+  font-family: "Rampart One", cursive;
+  margin-bottom: 20px;
+  color: var(--colorAzul);
+  font-size: 55px;
+}
+
+.nosotros-parrafo {
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+  margin: 40px;
+  color: var(--colorAzul);
+}
+
+.contanedor-fotos {
+  margin: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contanedor-fotos .card-img-top {
+  width: 300px;
+  height: auto;
+}
+
+.contanedor-fotos .card-title {
+  color: var(--colorNaraja);
+  font-family: "Mynerve", cursive;
+  font-size: 35px;
+}

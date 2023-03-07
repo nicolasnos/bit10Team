@@ -13,6 +13,7 @@ nav {
   flex-direction: row;
   background-color: #1e1c25;
   font-family: "Roboto Mono", monospace;
+  z-index: 1;
 }
 
 nav .container-link a {

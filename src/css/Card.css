@@ -1,9 +1,11 @@
-
 .card {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-color: var(--colorNaraja);
 }
 
-
+.card-contenedor {
+  text-align: center;
+}
