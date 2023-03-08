@@ -1,19 +1,23 @@
 import React from "react";
 import "../css/Banner.css";
+import Figure from "react-bootstrap/Figure";
 
 const Banner = () => {
   return (
-    <section className="background">
-      <div className="content">
-        <h2>
-          <span>JUST ONE</span> CLICK AWAY
-        </h2>
-        <p>
-          "La capacidad y gusto por la lectura da acceso a lo que ya ha sido
-          descubierto por otros".
-        </p>
-        <div>
-          <a href="#">Abraham Lincon</a>
+    <section className="banner">
+      <div className="info-contenedor">
+        <h1 className="heading ">
+          <span>JUST ONE</span> <br />
+          CLICK AWAY
+        </h1>
+        <div className="heading-sub">
+          <p>
+            "La capacidad y gusto por la lectura da acceso a lo que ya ha sido
+            descubierto por otros".
+            <div className="cita">
+              <q>Abraham Lincoln.</q>
+            </div>
+          </p>
         </div>
       </div>
     </section>
