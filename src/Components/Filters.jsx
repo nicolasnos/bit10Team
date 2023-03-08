@@ -107,9 +107,9 @@ const Filters = ({
             onChange={genreFilterHandler}
           />
         </div>
-        <button type="submit" className=" btn btn-primary">
+        <Button variant="outline-dark" type="submit" className="btn btn-primary ">
           Buscar
-        </button>
+        </Button>
       </form>
     </div>
   );

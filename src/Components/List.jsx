@@ -46,26 +46,6 @@ const List = () => {
     }
   };
 
-  /*   const showBook = () => {
-    const arr = totalBooks.map((item, i) => {
-      return (
-        <Card key={i} style={{ width: "18rem" }} className="card">
-          {" "}
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              {item.authors[0].name}
-            </Card.Subtitle>
-            <Card.Text>{item.subjects}</Card.Text>
-          </Card.Body>
-          <button onClick={handleEdit}>Editar</button>
-          <button onClick={() => handleDelete(item.id)}>eliminar</button>
-        </Card>
-      );
-    });
-    setBook(arr);
-  }; */
-
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
       if (titleFilter === "title") {
@@ -117,8 +97,6 @@ const List = () => {
           />
         </article>
         <article className="card-contenedor">
-          {" "}
-          {/* {book} */}
           <BookList
             totalBooks={totalBooks}
             setTotalBooks={setTotalBooks}
