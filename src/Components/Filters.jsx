@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 import "../css/Filters.css";
 
 const Filters = ({
@@ -141,9 +142,13 @@ const Filters = ({
             onChange={genreFilterHandler}
           />
         </div>
-        <button type="submit" className=" btn btn-primary">
+        <Button
+          variant="outline-dark"
+          type="submit"
+          className="btn btn-primary "
+        >
           Buscar
-        </button>
+        </Button>
       </form>
     </div>
   );

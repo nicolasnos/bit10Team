@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
+import { RiEdit2Line, RiDeleteBinLine } from "react-icons/ri";
+import { CiSaveDown1 } from "react-icons/ci";
+import { ImCancelCircle } from "react-icons/im";
 import "../css/Card.css";
 
 export default function BookIteam({
@@ -83,11 +86,11 @@ export default function BookIteam({
         </Card.Text>
         <div>
           <Button className="btn" variant="success" onClick={handleUpdate}>
-            guardar
+            <CiSaveDown1 /> guardar
           </Button>{" "}
           <Button className="btn" variant="danger" onClick={handleCancel}>
             {" "}
-            cancelar
+            cancelar <ImCancelCircle />
           </Button>{" "}
         </div>
       </>
@@ -101,15 +104,12 @@ export default function BookIteam({
       <Card.Text>{subjects}</Card.Text>
       <Button
         variant="secondary"
-        size="sm"
-        onClick={() => handleEdit({ title, authors, subjects })}
-      >
-        Editar
+        onClick={() => handleEdit({ title, authors, subjects })}>
+        <RiEdit2Line />
       </Button>
-      <Button variant="secondary" size="sm" onClick={handleDelete}>
-        Eliminar
+      <Button variant="secondary" onClick={handleDelete}>
+        <RiDeleteBinLine />
       </Button>
-          
     </>
   );
 }
