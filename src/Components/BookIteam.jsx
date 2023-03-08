@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { RiEdit2Line, RiDeleteBinLine } from "react-icons/ri";
-import { CiSaveDown1 } from "react-icons/ci";
-import { ImCancelCircle } from "react-icons/im";
 import "../css/Card.css";
 
 export default function BookIteam({
@@ -84,13 +82,13 @@ export default function BookIteam({
             onChange={(e) => setNewGenre(e.target.value)}
           />
         </Card.Text>
-        <div>
+        <div className="contenedor-btn-card">
           <Button className="btn" variant="success" onClick={handleUpdate}>
-            <CiSaveDown1 /> guardar
+           Guardar
           </Button>{" "}
           <Button className="btn" variant="danger" onClick={handleCancel}>
             {" "}
-            cancelar <ImCancelCircle />
+            cancelar 
           </Button>{" "}
         </div>
       </>
@@ -99,17 +97,18 @@ export default function BookIteam({
 
   return (
     <>
-      <Card.Title>{title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
-      <Card.Text>{subjects}</Card.Text>
-      <Button
-        variant="secondary"
-        onClick={() => handleEdit({ title, authors, subjects })}>
-        <RiEdit2Line />
-      </Button>
-      <Button variant="secondary" onClick={handleDelete}>
-        <RiDeleteBinLine />
-      </Button>
+      <Card.Title className="titulo">{title}</Card.Title>
+      <Card.Subtitle className="autor mb-2 text-muted">{authors}</Card.Subtitle>
+      <Card.Text className="genero mb-2 text-muted">{subjects}</Card.Text>
+      <div className="contenedor-btn-card">
+        <Button variant="outline-warning"
+          onClick={() => handleEdit({ title, authors, subjects })}>
+          <RiEdit2Line />
+        </Button>
+        <Button variant="outline-danger" onClick={handleDelete}>
+          <RiDeleteBinLine />
+        </Button>
+      </div>
     </>
   );
 }
