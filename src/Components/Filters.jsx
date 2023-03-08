@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
 import "../css/Filters.css";
 
 const Filters = ({
@@ -26,7 +25,53 @@ const Filters = ({
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("sin filtro", totalBooks);
+    //filtro de los libros
+    const filteredBooks = totalBooks
+      .filter((item) =>
+        item.title.toLowerCase().includes(titleFilter.toLowerCase())
+      )
+      .filter((item) =>
+        item.authors && item.authors[0].name
+          ? item.authors[0].name
+          : item.authors.toLowerCase().includes(authorFilter.toLowerCase())
+      )
+      .filter((item) =>
+        item.subjects.some((subject) =>
+          subject.toLowerCase().includes(genreFilter.toLowerCase())
+        )
+      );
+    //funcion que filtra los libros
+    const arr = filteredBooks.map((item, i) => {
+      return {
+        title: item.title,
+        authors:
+          item.authors && item.authors[0].name
+            ? item.authors[0].name
+            : item.authors,
+        subjects: item.subjects,
+      };
+    });
+
+    // funcion que re ordena los libros por titulo
+    const sortedBooks = [...totalBooks];
+    sortedBooks.sort((a, b) => {
+      const aMatch = filteredBooks.includes(a);
+      const bMatch = filteredBooks.includes(b);
+      if (aMatch && bMatch) {
+        return 0;
+      } else if (aMatch) {
+        return -1;
+      } else if (bMatch) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    setTotalBooks(sortedBooks);
+  };
+  /*   const handleSubmit = (event) => {
+    event.preventDefault();
     const filteredBooks = totalBooks
       .filter((item) =>
         item.title.toLowerCase().includes(titleFilter.toLowerCase())
@@ -51,22 +96,11 @@ const Filters = ({
             : item.authors,
         subjects: item.subjects,
       };
-      /*         <Card key={i} style={{ width: "18rem" }}>
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            {item.authors && item.authors[0].name
-              ? item.authors[0].name
-              : item.authors}
-          </Card.Subtitle>
-          <Card.Text>{item.subject}</Card.Text>
-          <Button variant="primary">Edit button</Button>
-          <Button variant="danger">Delete button</Button>
-        </Card> */
     });
     console.log("mapeo", arr);
 
-    setTotalBooks(arr);
   };
+    setTotalBooks(arr); */
 
   return (
     <div className="filters">
