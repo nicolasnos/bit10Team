@@ -9,21 +9,21 @@ const Header = () => {
   return (
     <BrowserRouter>
       <header>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+        <nav className="navbar bg-body-tertiary">
           <Figure className="contenedor">
             <Figure.Image
-              className="contenedor_img"
-              width={120}
+              className="img"
+              width={130}
               height={154}
               alt="imagen de fondo"
               src="../public/img/bookLogo.png"
             />
           </Figure>
           <div className="container-link">
-            <Link className="px-4" to="/">
+            <Link className="link px-5" to="/">
               Inicio
             </Link>
-            <Link className="px-5" to="/team">
+            <Link className="link px-5" to="/team">
               Team
             </Link>
           </div>
