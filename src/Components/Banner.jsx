@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/Banner.css";
-import Figure from "react-bootstrap/Figure";
 
 const Banner = () => {
   return (

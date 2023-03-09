@@ -13,6 +13,7 @@ const Filters = ({
   setTotalBooks,
   book,
 }) => {
+  // funciones actulizadoras de los inputs
   const searcherBook = (e) => {
     setTitleFilter(e.target.value);
   };
@@ -54,7 +55,7 @@ const Filters = ({
       };
     });
 
-    // funcion que re ordena los libros por titulo
+    // funcion que re ordena los libros por titulo, autor y genero
     const sortedBooks = [...totalBooks];
     sortedBooks.sort((a, b) => {
       const aMatch = filteredBooks.includes(a);
@@ -72,37 +73,6 @@ const Filters = ({
 
     setTotalBooks(sortedBooks);
   };
-  /*   const handleSubmit = (event) => {
-    event.preventDefault();
-    const filteredBooks = totalBooks
-      .filter((item) =>
-        item.title.toLowerCase().includes(titleFilter.toLowerCase())
-      )
-      .filter((item) =>
-        item.authors && item.authors[0].name
-          ? item.authors[0].name
-          : item.authors.toLowerCase().includes(authorFilter.toLowerCase())
-      )
-      .filter((item) =>
-        item.subjects.some((subject) =>
-          subject.toLowerCase().includes(genreFilter.toLowerCase())
-        )
-      );
-    console.log("filtrado", filteredBooks);
-    const arr = filteredBooks.map((item, i) => {
-      return {
-        title: item.title,
-        authors:
-          item.authors && item.authors[0].name
-            ? item.authors[0].name
-            : item.authors,
-        subjects: item.subjects,
-      };
-    });
-    console.log("mapeo", arr);
-
-  };
-    setTotalBooks(arr); */
 
   return (
     <div className="filters">
