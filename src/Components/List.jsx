@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/List.css";
-import Card from "react-bootstrap/Card";
 import Banner from "./Banner";
 import { ModalShow } from "./ModalShow";
 import BookList from "./BookList";
@@ -20,10 +19,11 @@ const List = () => {
   });
   const [newBook, setNewBook] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log("totalbooks:", totalBooks);
-  }, [totalBooks]);
+  }, [totalBooks]); */
 
+  // Se dispara al activar la pagina y llama a la funcion showApi
   useEffect(() => {
     showApi();
   }, []);
@@ -34,6 +34,7 @@ const List = () => {
     }
   }, [data, totalBooks]);
 
+  // Funcion que hace la peticion al api
   const showApi = async () => {
     try {
       const res = await fetch("https://gutendex.com/books/?");
@@ -46,26 +47,7 @@ const List = () => {
     }
   };
 
-  /*   const showBook = () => {
-    const arr = totalBooks.map((item, i) => {
-      return (
-        <Card key={i} style={{ width: "18rem" }} className="card">
-          {" "}
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              {item.authors[0].name}
-            </Card.Subtitle>
-            <Card.Text>{item.subjects}</Card.Text>
-          </Card.Body>
-          <button onClick={handleEdit}>Editar</button>
-          <button onClick={() => handleDelete(item.id)}>eliminar</button>
-        </Card>
-      );
-    });
-    setBook(arr);
-  }; */
-
+  //filtro preliminar
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
       if (titleFilter === "title") {
@@ -117,8 +99,6 @@ const List = () => {
           />
         </article>
         <article className="card-contenedor">
-          {" "}
-          {/* {book} */}
           <BookList
             totalBooks={totalBooks}
             setTotalBooks={setTotalBooks}

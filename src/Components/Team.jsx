@@ -23,7 +23,7 @@ const Team = () => {
       </section>
       <section>
         <CardGroup className="contanedor-fotos">
-          <a href="">
+          <a href="https://nicolasnos.github.io/bit07me/">
             <Card className="contanedor-fotos">
               <Card.Img variant="top" src="../public\img\NicolasOlmos.png" />
               <Card.Body>
@@ -31,7 +31,7 @@ const Team = () => {
               </Card.Body>
             </Card>
           </a>
-          <a href="">
+          <a href="https://sharontatiana.github.io/bit07me/">
             <Card className="contanedor-fotos">
               <Card.Img variant="top" src="..\public\img\SharonMonroy.png" />
               <Card.Body>
@@ -39,7 +39,7 @@ const Team = () => {
               </Card.Body>
             </Card>
           </a>
-          <a href="">
+          <a href="https://3ld4n1el.github.io/bit07me/">
             <Card className="contanedor-fotos">
               <Card.Img variant="top" src="..\public\img\DanielRomero.png" />
               <Card.Body>

@@ -8,7 +8,7 @@ import "../css/Card.css";
 const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
   const [editItem, setEditItem] = useState({});
   const cardBookElemento = totalBooks.map((item, i) => (
-    <Card key={i} style={{ width: "18rem" }} className="card">
+    <Card key={i} style={{ width: "13rem" }} className="card">
       <BookIteam
         index={i}
         title={item.title}

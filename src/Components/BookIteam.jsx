@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
+import { RiEdit2Line, RiDeleteBinLine } from "react-icons/ri";
 import "../css/Card.css";
 
 export default function BookIteam({
@@ -18,15 +19,14 @@ export default function BookIteam({
   const [newAuthor, setNewAuthor] = useState(authors);
   const [newGenre, setNewGenre] = useState(subjects);
 
-  //Fucncion que elimina la tarjeta
+  //Fucncion que elimina el libro
   const handleDelete = () => {
     const updatedBookList = [...totalBooks];
     updatedBookList.splice(index, 1);
     setTotalBooks(updatedBookList);
   };
 
-  //Funcion que editar la tarjeta
-
+  //Funcion que edita y actualiza el libro
   const handleEdit = () => {
     setEditItem({ index, title, authors, subjects });
   };
@@ -43,7 +43,6 @@ export default function BookIteam({
   };
 
   //Funcion que cancelar el editar
-
   const handleCancel = () => {
     setNewTitle(title);
     setNewAuthor(authors);
@@ -81,9 +80,9 @@ export default function BookIteam({
             onChange={(e) => setNewGenre(e.target.value)}
           />
         </Card.Text>
-        <div>
+        <div className="contenedor-btn-card">
           <Button className="btn" variant="success" onClick={handleUpdate}>
-            guardar
+            Guardar
           </Button>{" "}
           <Button className="btn" variant="danger" onClick={handleCancel}>
             {" "}
@@ -96,20 +95,20 @@ export default function BookIteam({
 
   return (
     <>
-      <Card.Title>{title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
-      <Card.Text>{subjects}</Card.Text>
-      <Button
-        variant="secondary"
-        size="sm"
-        onClick={() => handleEdit({ title, authors, subjects })}
-      >
-        Editar
-      </Button>
-      <Button variant="secondary" size="sm" onClick={handleDelete}>
-        Eliminar
-      </Button>
-          
+      <Card.Title className="titulo">{title}</Card.Title>
+      <Card.Subtitle className="autor mb-2 text-muted">{authors}</Card.Subtitle>
+      <Card.Text className="genero mb-2 text-muted">{subjects}</Card.Text>
+      <div className="contenedor-btn-card">
+        <Button
+          variant="outline-warning"
+          onClick={() => handleEdit({ title, authors, subjects })}
+        >
+          <RiEdit2Line />
+        </Button>
+        <Button variant="outline-danger" onClick={handleDelete}>
+          <RiDeleteBinLine />
+        </Button>
+      </div>
     </>
   );
 }

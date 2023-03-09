@@ -26,6 +26,7 @@ const ModalShow = ({
   };
   const handleShow = () => setModalShow(true);
 
+  //agrega valor al titulo de nuevo libro
   const handleTitle = (event) => {
     const newObj = {
       title: event.target.value,
@@ -35,6 +36,7 @@ const ModalShow = ({
     setaddBook(newObj);
   };
 
+  //agrega valor al autor de nuevo libro
   const handleAuthors = (event) => {
     const newobj = {
       title: addBook.title,
@@ -44,6 +46,7 @@ const ModalShow = ({
     setaddBook(newobj);
   };
 
+  //agrega valor al genero de nuevo libro
   const handleSubjects = (event) => {
     const newobj = {
       title: addBook.title,
@@ -53,14 +56,14 @@ const ModalShow = ({
     setaddBook(newobj);
   };
 
+  //Agrega el nuevo libro al array existente
   const handleSubmit = (event) => {
     event.preventDefault();
     setNewBook((prevBooks) => [...newBook, addBook]);
     setaddBook({ title: "", authors: "", subjects: "" });
     const updatedBookList = [...totalBooks];
     updatedBookList.push(addBook);
-    console.log(setTotalBooks(updatedBookList));
-    console.log(totalBooks);
+    setTotalBooks(updatedBookList);
     handleClose();
   };
 
