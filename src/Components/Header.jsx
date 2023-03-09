@@ -4,10 +4,12 @@ import Figure from "react-bootstrap/Figure";
 import List from "./List";
 import Team from "./Team";
 import "../css/Header.css";
+import { FaBeer } from "../../node_modules/@react-icons/all-files/fa/FaBeer";
 
 const Header = () => {
   return (
     <BrowserRouter>
+    <FaBeer/>
       <header>
         <nav className="navbar navbar-expand-lg bg-body-tertiary ">
           <Figure className="contenedor">
