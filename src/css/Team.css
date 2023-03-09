@@ -3,9 +3,7 @@
   text-align: center;
   vertical-align: middle;
 }
-.contenedor-nosotros {
-  margin-top: 100px;
-}
+
 a {
   text-decoration: none;
   text-align: center;
@@ -68,9 +66,6 @@ a {
 }
 
 @media screen and (max-width: 480px) {
-  .contenedor-nosotros {
-    margin-top: 150px;
-  }
 
   .nosotros-titulo {
     font-size: 35px;

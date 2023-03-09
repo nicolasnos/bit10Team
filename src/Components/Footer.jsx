@@ -6,13 +6,15 @@ export const Footer = () => {
   return (
     <footer>
       <Figure className="contenedor">
-        <Figure.Image
-          className="contenedor_img"
-          width={254}
-          height={154}
-          alt="254x154"
-          src="../public/img/teamLogoBlanco.png"
-        />
+        <a href="https://github.com/nicolasnos/bit10Team">
+          <Figure.Image
+            className="contenedor_img"
+            width={254}
+            height={154}
+            alt="254x154"
+            src="../public/img/teamLogoBlanco.png"
+          />
+        </a>
         <Figure.Caption className="texto_integrantes">
           Nicolás Olmos <span>|</span> Sharon Monroy <span>|</span> Daniel
           Romero
@@ -24,7 +26,8 @@ export const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/in/nicolas-olmos-a7a1ba261/"
-              target={"_blank"}>
+              target={"_blank"}
+            >
               <img src="../public/img/linkedin.svg"></img>
             </a>
           </div>

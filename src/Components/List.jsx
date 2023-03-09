@@ -19,10 +19,11 @@ const List = () => {
   });
   const [newBook, setNewBook] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log("totalbooks:", totalBooks);
-  }, [totalBooks]);
+  }, [totalBooks]); */
 
+  // Se dispara al activar la pagina y llama a la funcion showApi
   useEffect(() => {
     showApi();
   }, []);
@@ -33,6 +34,7 @@ const List = () => {
     }
   }, [data, totalBooks]);
 
+  // Funcion que hace la peticion al api
   const showApi = async () => {
     try {
       const res = await fetch("https://gutendex.com/books/?");
@@ -45,6 +47,7 @@ const List = () => {
     }
   };
 
+  //filtro preliminar
   const handleFilterChange = () => {
     let filteredBooks = totalBooks.filter((totalBooks) => {
       if (titleFilter === "title") {

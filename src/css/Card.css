@@ -3,9 +3,48 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-color: var(--colorNaraja);
+  border-color:var(--colorNaraja);
+  padding: 10px;
 }
 
 .card-contenedor {
   text-align: center;
+}
+
+.titulo{
+  color: var(--colorAzulClaro);
+  
+}
+.autor{
+  color:var(--colorNaraja)!important;
+  font-size: smaller;
+  font-weight: 500;
+}
+
+.genero{
+  text-align: justify;
+  font-size: small;
+}
+
+.contenedor-btn-card{
+  display: flex;
+  justify-content: center;
+}
+
+img, svg {
+  font-size: 25px;
+}
+
+.inputEdit{
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid #ca6c61;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+}
+.inputEdit:focus,
+.inputEdit:active {
+  border-bottom-color: var(--colorAzul);
+  outline: none;
 }
