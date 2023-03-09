@@ -4,6 +4,7 @@ import Figure from "react-bootstrap/Figure";
 import List from "./List";
 import Team from "./Team";
 import "../css/Header.css";
+import Logo from "../assets/img/bookLogo.png";
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
               width={130}
               height={154}
               alt="imagen de fondo"
-              src="../public/img/bookLogo.png"
+              src={Logo}
             />
           </Figure>
           <div className="container-link">
