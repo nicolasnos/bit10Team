@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-form{
+.form-filter{
   display: flex;
 }
 

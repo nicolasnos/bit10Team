@@ -4,7 +4,6 @@ import Figure from "react-bootstrap/Figure";
 import List from "./List";
 import Team from "./Team";
 import "../css/Header.css";
-import { FaBeer } from "../../node_modules/@react-icons/all-files/fa/FaBeer";
 
 const Header = () => {
   return (
