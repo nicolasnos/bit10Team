@@ -76,7 +76,7 @@ const Filters = ({
 
   return (
     <div className="filters">
-      <form onSubmit={handleSubmit}>
+      <form  onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="title" className="label-filters">
             Titulo:
@@ -113,13 +113,11 @@ const Filters = ({
             onChange={genreFilterHandler}
           />
         </div>
-        <Button
-          variant="outline-dark"
-          type="submit"
-          className="btn btn-primary "
-        >
-          Buscar
-        </Button>
+        <div className="contendor-btn">
+          <Button type="submit" className="btn-buscar">
+            Buscar
+          </Button>
+        </div>
       </form>
     </div>
   );
