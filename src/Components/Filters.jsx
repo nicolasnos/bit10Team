@@ -26,15 +26,16 @@ const Filters = ({
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+
     //filtro de los libros
     const filteredBooks = totalBooks
       .filter((item) =>
         item.title.toLowerCase().includes(titleFilter.toLowerCase())
       )
       .filter((item) =>
-        item.authors && item.authors[0].name
-          ? item.authors[0].name
-          : item.authors.toLowerCase().includes(authorFilter.toLowerCase())
+        (item.authors[0].name ? item.authors[0].name : item.authors)
+          .toLowerCase()
+          .includes(authorFilter.toLowerCase())
       )
       .filter((item) =>
         item.subjects.some((subject) =>
