@@ -70,7 +70,7 @@ const Filters = ({
 
   return (
     <div className="filters">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-filter" >
         <div className="form-group">
           <label htmlFor="title" className="label-filters">
             Titulo:
