@@ -9,7 +9,6 @@ import Logo from "../assets/img/bookLogo.png";
 const Header = () => {
   return (
     <BrowserRouter>
-    <FaBeer/>
       <header>
         <nav className="navbar bg-body-tertiary">
           <Figure className="contenedor">
