@@ -26,7 +26,8 @@ export const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/in/nicolas-olmos-a7a1ba261/"
-              target={"_blank"}>
+              target={"_blank"}
+            >
               <img src="../public/img/linkedin.svg"></img>
             </a>
           </div>
