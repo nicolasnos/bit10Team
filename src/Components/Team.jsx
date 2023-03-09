@@ -2,6 +2,9 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import "../css/Team.css";
+import FotoDaniel from "../assets/img/DanielRomero.png";
+import FotoSharon from "../assets/img/SharonMonroy.png";
+import FotoNicolas from "../assets/img/NicolasOlmos.png";
 
 const Team = () => {
   return (
@@ -23,25 +26,25 @@ const Team = () => {
       </section>
       <section>
         <CardGroup className="contanedor-fotos">
-          <a href="https://nicolasnos.github.io/bit07me/">
+          <a href="https://nicolasnos.github.io/bit07me/" target={"_blank"}>
             <Card className="contanedor-fotos">
-              <Card.Img variant="top" src="../public\img\NicolasOlmos.png" />
+              <Card.Img variant="top" src={FotoNicolas} />
               <Card.Body>
                 <Card.Title>Nicolás Olmos</Card.Title>
               </Card.Body>
             </Card>
           </a>
-          <a href="https://sharontatiana.github.io/bit07me/">
+          <a href="https://sharontatiana.github.io/bit07me/" target={"_blank"}>
             <Card className="contanedor-fotos">
-              <Card.Img variant="top" src="..\public\img\SharonMonroy.png" />
+              <Card.Img variant="top" src={FotoSharon} />
               <Card.Body>
                 <Card.Title>Sharon Monroy</Card.Title>
               </Card.Body>
             </Card>
           </a>
-          <a href="https://3ld4n1el.github.io/bit07me/">
+          <a href="https://3ld4n1el.github.io/bit07me/" target={"_blank"}>
             <Card className="contanedor-fotos">
-              <Card.Img variant="top" src="..\public\img\DanielRomero.png" />
+              <Card.Img variant="top" src={FotoDaniel} />
               <Card.Body>
                 <Card.Title>Daniel Romero</Card.Title>
               </Card.Body>
