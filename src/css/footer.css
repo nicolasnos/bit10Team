@@ -58,10 +58,6 @@ footer {
   .texto_integrantes {
     font-size: 10px;
   }
-  .texto_integrantes {
-    font-size: 12px;
-  }
-
   .texto_integrantes span {
     font-size: 15px;
   }
@@ -79,6 +75,6 @@ footer {
   }
 
   .texto_derechos {
-    font-size: 10px;
+    font-size: 9px;
   }
 }

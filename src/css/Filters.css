@@ -63,7 +63,15 @@
   transform: translatey(5px);
 }
 
-
+@media screen and (max-width: 720px) {
+  .filters .form-group {
+    margin: 1rem 1rem;
+  }
+  .btn-buscar  {
+    margin-right:50px ;
+    font-size:14px;
+  }
+}
 
 @media screen and (max-width: 632px) {
   .filters form {
