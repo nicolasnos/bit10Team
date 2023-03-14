@@ -7,6 +7,7 @@ import "../css/Card.css";
 
 const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
   const [editItem, setEditItem] = useState({});
+  const [link, setLink] = useState("");
   const cardBookElemento = totalBooks.map((item, i) => (
     <Card key={i} style={{ width: "13rem" }} className="card">
       <BookIteam
@@ -17,6 +18,9 @@ const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
             ? item.authors[0].name
             : item.authors
         }
+        bookImage={item.formats["image/jpeg"]}
+        url={item.formats["text/html"]}
+        setLink={setLink}
         subjects={item.subjects}
         newBook={newBook}
         setNewBook={setNewBook}

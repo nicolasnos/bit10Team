@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Figure } from "react-bootstrap";
 import { RiEdit2Line, RiDeleteBinLine } from "react-icons/ri";
 import "../css/Card.css";
 
@@ -8,8 +8,8 @@ export default function BookIteam({
   title,
   authors,
   subjects,
-  newBook,
-  setNewBook,
+  url,
+  bookImage,
   editItem,
   setEditItem,
   setTotalBooks,
@@ -80,6 +80,14 @@ export default function BookIteam({
             onChange={(e) => setNewGenre(e.target.value)}
           />
         </Card.Text>
+        <Card.Text>
+          <input
+            className="inputImage"
+            type="text"
+            id="genre-input"
+            onChange={(e) => setNewGenre(e.target.value)}
+          />
+        </Card.Text>
         <div className="contenedor-btn-card">
           <Button className="btn" variant="success" onClick={handleUpdate}>
             Guardar
@@ -97,6 +105,17 @@ export default function BookIteam({
     <>
       <Card.Title className="titulo">{title}</Card.Title>
       <Card.Subtitle className="autor mb-2 text-muted">{authors}</Card.Subtitle>
+      <a href={url} target="_blank">
+        <Figure>
+          <Figure.Image
+            width={111}
+            height={120}
+            alt="Link al libro de ${title}"
+            src={bookImage}
+          />
+          <Figure.Caption>Link al libro de {title}</Figure.Caption>
+        </Figure>
+      </a>
       <Card.Text className="genero mb-2 text-muted">{subjects}</Card.Text>
       <div className="contenedor-btn-card">
         <Button
