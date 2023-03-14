@@ -6,11 +6,11 @@ Página de busqueda y dibulgación de textos literarios los cuales el usuario pu
 
 ### _Logo Proyecto_
 
-![Logo de Proyecto](./public/img/bookLogo.png)
+![Logo de Proyecto](./src/assets/img/bookLogo.png)
 
 ### _Logo Team_
 
-![Logo de Team](./public/img/teamLogoBlanco.png)
+![Logo de Team](./src/assets/img/teamLogoBlanco.png)
 
 ## **_Estilos Generales_**
 
@@ -25,7 +25,7 @@ font-family: 'Inter', sans-serif;
 font-family: 'Roboto Mono', monospace;
 ```
 2. **Paleta de colores**
- ![Paleta de Colores](./public/img/PaletaDeColores.png)
+ ![Paleta de Colores](./src/assets/img/PaletaDeColores.png)
 
 ## _**Wireframe**_
 
@@ -45,7 +45,7 @@ Se acordo trabajar despues de 12md y antes de 4:30 se hace una reunion de seguim
 > **Nota:** Forma de comunicacion via Google Meet
 
 ### Herramientas de Seguimiento 
-![Logo de Asana](./public/img/logoAsana.png) 
+![Logo de Asana](./src/assets/img/logoAsana.png) 
 
 ### Tecnologias aplicadas
 - HTML

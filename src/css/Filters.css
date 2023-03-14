@@ -1,10 +1,10 @@
-/* 1366 x 768 */
+
 .filters {
   display: flex;
   justify-content: space-between;
 }
 
-form{
+.form-filtro{
   display: flex;
 }
 
@@ -24,7 +24,7 @@ form{
 }
 
 .form-control-filtro {
-  width: 80%;
+  width: 90%;
   border: none;
   border-bottom: 2px solid #b94b3e;
   font-size: 1.2rem;
@@ -61,6 +61,16 @@ form{
 
 .btn-primary:active {
   transform: translatey(5px);
+}
+
+@media screen and (max-width: 720px) {
+  .filters .form-group {
+    margin: 1rem 1rem;
+  }
+  .btn-buscar  {
+    margin-right:50px ;
+    font-size:14px;
+  }
 }
 
 @media screen and (max-width: 632px) {

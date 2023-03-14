@@ -122,10 +122,10 @@ export default function BookIteam({
           variant="outline-warning"
           onClick={() => handleEdit({ title, authors, subjects })}
         >
-          <RiEdit2Line />
+          <RiEdit2Line/>
         </Button>
         <Button variant="outline-danger" onClick={handleDelete}>
-          <RiDeleteBinLine />
+          <RiDeleteBinLine/>
         </Button>
       </div>
     </>
