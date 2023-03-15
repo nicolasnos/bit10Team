@@ -11,7 +11,7 @@ import {
 import "../css/ModalShow.css";
 
 const ModalShow = ({
-  addBook = { title: "", authors: "", subjects: "" },
+  addBook = { title: "", authors: "", subjects: "", image: "", link: "" },
   setaddBook,
   newBook,
   setNewBook,
@@ -22,7 +22,8 @@ const ModalShow = ({
 
   //Funciones que maneja el modal
   const handleClose = () => {
-    setaddBook({ title: "", authors: "", subjects: "" }), setModalShow(false);
+    setaddBook({ title: "", authors: "", subjects: "", image: "", link: "" }),
+      setModalShow(false);
   };
   const handleShow = () => setModalShow(true);
 
@@ -52,8 +53,33 @@ const ModalShow = ({
       title: addBook.title,
       authors: addBook.authors,
       subjects: [event.target.value],
+      image: addBook.image,
+      link: addBook.link,
     };
     setaddBook(newobj);
+  };
+
+  //agrega valor a la imágen del nuevo libro
+  const handleImage = (event) => {
+    const newObj = {
+      title: addBook.title,
+      authors: addBook.authors,
+      subjects: addBook.subjects,
+      image: event.target.value,
+      link: addBook.link,
+    };
+    setaddBook(newObj);
+  };
+  //agrega valor a la link del nuevo libro
+  const handleLink = (event) => {
+    const newObj = {
+      title: addBook.title,
+      authors: addBook.authors,
+      subjects: addBook.subjects,
+      image: event.target.value,
+      link: addBook.link,
+    };
+    setaddBook(newObj);
   };
 
   //Agrega el nuevo libro al array existente
@@ -111,6 +137,28 @@ const ModalShow = ({
                 required
                 value={addBook.subjects}
                 onChange={handleSubjects}
+              />
+            </Form.Group>
+            <Form.Group>
+              <FormLabel className="form-label"> Link del libro</FormLabel>
+              <FormControl
+                className="form-control"
+                type="text"
+                placeholder="Ingrese el link para encontrar el libro"
+                value={addBook.image}
+                onChange={handleImage}
+              />
+            </Form.Group>
+            <Form.Group>
+              <FormLabel className="form-label">
+                Imágen del libro (opcional)
+              </FormLabel>
+              <FormControl
+                className="form-control"
+                type="text"
+                placeholder="Ingrese la imágen del libro (opcional)"
+                value={addBook.link}
+                onChange={handleLink}
               />
             </Form.Group>
             <div className="btn-contenedor">

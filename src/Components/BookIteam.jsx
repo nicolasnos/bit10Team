@@ -18,6 +18,12 @@ export default function BookIteam({
   const [newTitle, setNewTitle] = useState(title);
   const [newAuthor, setNewAuthor] = useState(authors);
   const [newGenre, setNewGenre] = useState(subjects);
+  const [link, setLink] = useState(url);
+
+  //link por default a la imagen
+  const [newImage, setNewImage] = useState(
+    "https://alanrinzler.com/wp-content/uploads/2008/07/t2.jpg"
+  );
 
   //Fucncion que elimina el libro
   const handleDelete = () => {
@@ -34,7 +40,12 @@ export default function BookIteam({
   const handleUpdate = () => {
     const updatedList = totalBooks.map((item, i) => {
       if (i === index) {
-        return { title: newTitle, authors: newAuthor, subjects: newGenre };
+        return {
+          title: newTitle,
+          authors: newAuthor,
+          subjects: newGenre,
+          url: link,
+        };
       }
       return item;
     });
@@ -47,6 +58,8 @@ export default function BookIteam({
     setNewTitle(title);
     setNewAuthor(authors);
     setNewGenre(subjects);
+    setLink(url);
+    setNewImage(!bookImage ? newImage : bookImage);
     setEditItem({});
   };
 
@@ -81,11 +94,27 @@ export default function BookIteam({
           />
         </Card.Text>
         <Card.Text>
+          <label htmlFor="link-input">
+            Pon el link para encontrar tu libro
+          </label>
           <input
             className="inputImage"
             type="text"
-            id="genre-input"
-            onChange={(e) => setNewGenre(e.target.value)}
+            value={link}
+            id="link-input"
+            onChange={(e) => setLink(e.target.value)}
+          />
+        </Card.Text>
+        <Card.Text>
+          <label htmlFor="image-input">
+            Pon la url para encontrar la imagen del libro
+          </label>
+          <input
+            className="inputImage"
+            type="text"
+            value={newImage}
+            id="image-input"
+            onChange={(e) => setNewImage(e.target.value)}
           />
         </Card.Text>
         <div className="contenedor-btn-card">
@@ -122,10 +151,10 @@ export default function BookIteam({
           variant="outline-warning"
           onClick={() => handleEdit({ title, authors, subjects })}
         >
-          <RiEdit2Line/>
+          <RiEdit2Line />
         </Button>
         <Button variant="outline-danger" onClick={handleDelete}>
-          <RiDeleteBinLine/>
+          <RiDeleteBinLine />
         </Button>
       </div>
     </>
