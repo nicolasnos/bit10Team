@@ -10,6 +10,7 @@
 }
 
 .info-contenedor {
+  border-style: line;
   display: inline-block;
   font-weight: bolder;
   max-width: 1200px;

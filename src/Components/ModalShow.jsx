@@ -11,7 +11,15 @@ import {
 import "../css/ModalShow.css";
 
 const ModalShow = ({
-  addBook = { title: "", authors: "", subjects: "", image: "", link: "" },
+  addBook = {
+    title: "",
+    authors: "",
+    subjects: "",
+    formats: {
+      "image/jpeg": "",
+      "text/html": "",
+    },
+  },
   setaddBook,
   newBook,
   setNewBook,
@@ -22,7 +30,15 @@ const ModalShow = ({
 
   //Funciones que maneja el modal
   const handleClose = () => {
-    setaddBook({ title: "", authors: "", subjects: "", image: "", link: "" }),
+    setaddBook({
+      title: "",
+      authors: "",
+      subjects: "",
+      formats: {
+        "image/jpeg": "",
+        "text/html": "",
+      },
+    }),
       setModalShow(false);
   };
   const handleShow = () => setModalShow(true);
@@ -53,8 +69,10 @@ const ModalShow = ({
       title: addBook.title,
       authors: addBook.authors,
       subjects: [event.target.value],
-      image: addBook.image,
-      link: addBook.link,
+      formats: {
+        "image/jpeg": addBook.image,
+        "text/html": addBook.link,
+      },
     };
     setaddBook(newobj);
   };
@@ -65,8 +83,10 @@ const ModalShow = ({
       title: addBook.title,
       authors: addBook.authors,
       subjects: addBook.subjects,
-      image: event.target.value,
-      link: addBook.link,
+      formats: {
+        "image/jpeg": event.target.value,
+        "text/html": addBook.formats["text/html"],
+      },
     };
     setaddBook(newObj);
   };
@@ -76,8 +96,10 @@ const ModalShow = ({
       title: addBook.title,
       authors: addBook.authors,
       subjects: addBook.subjects,
-      image: event.target.value,
-      link: addBook.link,
+      formats: {
+        "image/jpeg": addBook.formats["image/jpeg"],
+        "text/html": event.target.value,
+      },
     };
     setaddBook(newObj);
   };
@@ -86,7 +108,15 @@ const ModalShow = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     setNewBook((prevBooks) => [...newBook, addBook]);
-    setaddBook({ title: "", authors: "", subjects: "" });
+    setaddBook({
+      title: "",
+      authors: "",
+      subjects: "",
+      formats: {
+        "image/jpeg": "",
+        "text/html": "",
+      },
+    });
     const updatedBookList = [...totalBooks];
     updatedBookList.push(addBook);
     setTotalBooks(updatedBookList);
@@ -146,7 +176,7 @@ const ModalShow = ({
                 type="text"
                 placeholder="Ingrese el link para encontrar el libro"
                 value={addBook.image}
-                onChange={handleImage}
+                onChange={handleLink}
               />
             </Form.Group>
             <Form.Group>
@@ -158,7 +188,7 @@ const ModalShow = ({
                 type="text"
                 placeholder="Ingrese la imágen del libro (opcional)"
                 value={addBook.link}
-                onChange={handleLink}
+                onChange={handleImage}
               />
             </Form.Group>
             <div className="btn-contenedor">

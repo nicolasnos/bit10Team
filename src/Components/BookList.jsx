@@ -8,6 +8,11 @@ import "../css/Card.css";
 const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
   const [editItem, setEditItem] = useState({});
   const [link, setLink] = useState("");
+
+  //link por default a la imagen
+  const defaultImage =
+    "https://alanrinzler.com/wp-content/uploads/2008/07/t2.jpg";
+
   const cardBookElemento = totalBooks.map((item, i) => (
     <Card key={i} style={{ width: "13rem" }} className="card">
       <BookIteam
@@ -18,7 +23,11 @@ const BookList = ({ newBook, setNewBook, totalBooks, setTotalBooks }) => {
             ? item.authors[0].name
             : item.authors
         }
-        bookImage={item.formats["image/jpeg"]}
+        bookImage={
+          !item.formats["image/jpeg"]
+            ? defaultImage
+            : item.formats["image/jpeg"]
+        }
         url={item.formats["text/html"]}
         setLink={setLink}
         subjects={item.subjects}

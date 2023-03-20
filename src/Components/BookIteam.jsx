@@ -19,11 +19,7 @@ export default function BookIteam({
   const [newAuthor, setNewAuthor] = useState(authors);
   const [newGenre, setNewGenre] = useState(subjects);
   const [link, setLink] = useState(url);
-
-  //link por default a la imagen
-  const [newImage, setNewImage] = useState(
-    "https://alanrinzler.com/wp-content/uploads/2008/07/t2.jpg"
-  );
+  const [newImage, setNewImage] = useState(bookImage);
 
   //Fucncion que elimina el libro
   const handleDelete = () => {
@@ -44,7 +40,10 @@ export default function BookIteam({
           title: newTitle,
           authors: newAuthor,
           subjects: newGenre,
-          url: link,
+          formats: {
+            "image/jpeg": newImage,
+            "text/html": link,
+          },
         };
       }
       return item;
