@@ -137,7 +137,7 @@ const ModalShow = ({
         <Modal.Body className="modal-body">
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <FormLabel className="form-label"> Titulo del libro</FormLabel>
+              <FormLabel className="form-label"> Título del libro</FormLabel>
               <FormControl
                 className="form-control"
                 type="text"

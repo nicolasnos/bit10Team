@@ -35,6 +35,13 @@ img, svg {
   font-size: 25px;
 }
 
+label{
+  font-size: 10px;
+  color:  #b94b3e;
+  font-weight: bolder;
+  text-transform: uppercase;
+  display: block;
+}
 .inputEdit{
   width: 80%;
   border: none;
@@ -48,3 +55,5 @@ img, svg {
   border-bottom-color: var(--colorAzul);
   outline: none;
 }
+
+

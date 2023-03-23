@@ -79,7 +79,7 @@ const Filters = ({
       <form  className="form-filtro" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="title" className="label-filters">
-            Titulo:
+          Título:
           </label>
           <input
             type="text"
@@ -103,7 +103,7 @@ const Filters = ({
         </div>
         <div className="form-group">
           <label htmlFor="genre" className="label-filters">
-            Genero:
+            Género:
           </label>
           <input
             type="text"

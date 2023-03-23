@@ -65,7 +65,10 @@ export default function BookIteam({
   if (editItem.index === index) {
     return (
       <>
-        <Card.Title>
+        <Card.Text>
+        <label htmlFor="titulo-input" >
+        Título
+          </label>
           <input
             className="inputEdit"
             type="text"
@@ -73,8 +76,11 @@ export default function BookIteam({
             id="title-input"
             onChange={(e) => setNewTitle(e.target.value)}
           />
-        </Card.Title>
-        <Card.Subtitle>
+        </Card.Text>
+        <Card.Text>
+        <label htmlFor="autor-input" >
+          Autor
+          </label>
           <input
             className="inputEdit"
             type="text"
@@ -82,8 +88,11 @@ export default function BookIteam({
             id="author-input"
             onChange={(e) => setNewAuthor(e.target.value)}
           />
-        </Card.Subtitle>
+        </Card.Text>
         <Card.Text>
+        <label htmlFor="genero-input" >
+            Genero
+          </label>
           <input
             className="inputEdit"
             type="text"
@@ -93,11 +102,11 @@ export default function BookIteam({
           />
         </Card.Text>
         <Card.Text>
-          <label htmlFor="link-input">
+          <label htmlFor="link-input" className="labelEdit">
             Pon el link para encontrar tu libro
           </label>
           <input
-            className="inputImage"
+            className="inputEdit"
             type="text"
             value={link}
             id="link-input"
@@ -105,11 +114,11 @@ export default function BookIteam({
           />
         </Card.Text>
         <Card.Text>
-          <label htmlFor="image-input">
+          <label htmlFor="image-input"  className="labelEdit">
             Pon la url para encontrar la imagen del libro
           </label>
           <input
-            className="inputImage"
+            className="inputEdit"
             type="text"
             value={newImage}
             id="image-input"
