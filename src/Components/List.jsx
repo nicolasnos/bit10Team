@@ -20,7 +20,7 @@ const List = () => {
   const [newBook, setNewBook] = useState([]);
 
   useEffect(() => {
-    console.log("totalbooks:", totalBooks);
+    //console.log para verificar la lista
   }, [totalBooks]);
 
   // Se dispara al activar la pagina y llama a la funcion showApi
