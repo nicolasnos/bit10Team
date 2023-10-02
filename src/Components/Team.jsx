@@ -26,7 +26,7 @@ const Team = () => {
       </section>
       <section>
         <CardGroup className="contanedor-fotos">
-          <a href="https://nicolasnos.github.io/bit07me/" target={"_blank"}>
+          <a href="https://portfolio-nos.netlify.app/" target={"_blank"}>
             <Card className="contanedor-fotos">
               <Card.Img variant="top" src={FotoNicolas} />
               <Card.Body>
